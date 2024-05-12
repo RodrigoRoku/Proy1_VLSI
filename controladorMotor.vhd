@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity controladorMotor is
+	port(	clk, rst, echo, start:		in std_logic;
+			--duty: 							in integer;
+			
+			trig, snlMotor:				out std_logic;
+			disp0, disp1, disp2: 		out std_logic_vector(6 downto 0);
+			disp3, disp4, disp5: 		out std_logic_vector(6 downto 0));
+end entity;
+
+architecture bhv of controladorMotor is
+	signal clkl: std_logic; --Para el reloj del pwm
+	signal duty: integer;
+begin
+	cl1: entity work.divf(bhv) generic map(25000) port map(clk, clkl);
+	
+	pwm1: entity work.senalPwm(bhv) port map(clkl, duty, snlMotor); 
+	sensor1: entity work.sensor(bhv) port map(clk, rst, echo, start, duty, trig, disp0, disp1, disp2, disp3, disp4, disp5);
+	
+end architecture;

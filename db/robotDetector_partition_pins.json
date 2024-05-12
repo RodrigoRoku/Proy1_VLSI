@@ -8,6 +8,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "snlMotor",
+					"strict" : false
+				},
+				{
 					"name" : "disp0[0]",
 					"strict" : false
 				},

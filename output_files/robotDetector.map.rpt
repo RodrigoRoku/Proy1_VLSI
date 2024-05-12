@@ -1,5 +1,5 @@
 Analysis & Synthesis report for robotDetector
-Sun May 12 01:11:48 2024
+Sun May 12 03:18:12 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,25 +13,32 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |sensor|nextState
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: divf:clkS
- 14. Parameter Settings for User Entity Instance: divf:u1
- 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
- 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
- 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
- 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
- 23. Parameter Settings for Inferred Entity Instance: calcDistance:u4|lpm_divide:Div0
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |controladorMotor|sensor:sensor1|nextState
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: divf:cl1
+ 16. Parameter Settings for User Entity Instance: sensor:sensor1|divf:clkS
+ 17. Parameter Settings for User Entity Instance: sensor:sensor1|divf:u1
+ 18. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod0
+ 19. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod1
+ 20. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div0
+ 21. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div1
+ 22. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod2
+ 23. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod3
+ 24. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div2
+ 25. Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div3
+ 26. Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDistance:u4|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDuty:vel|lpm_mult:Mult0
+ 28. Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDuty:vel|lpm_mult:Mult1
+ 29. Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDuty:vel|lpm_divide:Div0
+ 30. lpm_mult Parameter Settings by Entity Instance
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -58,19 +65,19 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 12 01:11:48 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun May 12 03:18:12 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; robotDetector                                  ;
-; Top-level Entity Name              ; sensor                                         ;
+; Top-level Entity Name              ; controladorMotor                               ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 9,702                                          ;
-;     Total combinational functions  ; 9,700                                          ;
-;     Dedicated logic registers      ; 96                                             ;
-; Total registers                    ; 96                                             ;
-; Total pins                         ; 47                                             ;
+; Total logic elements               ; 11,350                                         ;
+;     Total combinational functions  ; 11,346                                         ;
+;     Dedicated logic registers      ; 268                                            ;
+; Total registers                    ; 268                                            ;
+; Total pins                         ; 48                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 12                                             ;
 ; Total PLLs                         ; 0                                              ;
 ; UFM blocks                         ; 0                                              ;
 ; ADC blocks                         ; 0                                              ;
@@ -83,7 +90,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; sensor             ; robotDetector      ;
+; Top-level entity name                                            ; controladorMotor   ; robotDetector      ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -171,13 +178,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
@@ -198,6 +205,9 @@ https://fpgasoftware.intel.com/eula.
 ; divf.vhd                         ; yes             ; User VHDL File               ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/divf.vhd                         ;         ;
 ; clkTrigger.vhd                   ; yes             ; User VHDL File               ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/clkTrigger.vhd                   ;         ;
 ; calcDistance.vhd                 ; yes             ; User VHDL File               ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd                 ;         ;
+; calcDuty.vhd                     ; yes             ; User VHDL File               ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd                     ;         ;
+; senalPwm.vhd                     ; yes             ; User VHDL File               ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalPwm.vhd                     ;         ;
+; controladorMotor.vhd             ; yes             ; User VHDL File               ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd             ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
@@ -219,167 +229,215 @@ https://fpgasoftware.intel.com/eula.
 ; db/lpm_divide_3vl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_divide_3vl.tdf            ;         ;
 ; db/sign_div_unsign_5nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/sign_div_unsign_5nh.tdf       ;         ;
 ; db/alt_u_div_kke.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/alt_u_div_kke.tdf             ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_qgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf                  ;         ;
+; db/lpm_divide_vco.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_divide_vco.tdf            ;         ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                    ;
-+---------------------------------------------+------------------+
-; Resource                                    ; Usage            ;
-+---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 9,702            ;
-;                                             ;                  ;
-; Total combinational functions               ; 9700             ;
-; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 3116             ;
-;     -- 3 input functions                    ; 2842             ;
-;     -- <=2 input functions                  ; 3742             ;
-;                                             ;                  ;
-; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 6537             ;
-;     -- arithmetic mode                      ; 3163             ;
-;                                             ;                  ;
-; Total registers                             ; 96               ;
-;     -- Dedicated logic registers            ; 96               ;
-;     -- I/O registers                        ; 0                ;
-;                                             ;                  ;
-; I/O pins                                    ; 47               ;
-;                                             ;                  ;
-; Embedded Multiplier 9-bit elements          ; 0                ;
-;                                             ;                  ;
-; Maximum fan-out node                        ; distanciaMax[31] ;
-; Maximum fan-out                             ; 276              ;
-; Total fan-out                               ; 28328            ;
-; Average fan-out                             ; 2.86             ;
-+---------------------------------------------+------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                   ;
++---------------------------------------------+---------------------------------+
+; Resource                                    ; Usage                           ;
++---------------------------------------------+---------------------------------+
+; Estimated Total logic elements              ; 11,350                          ;
+;                                             ;                                 ;
+; Total combinational functions               ; 11346                           ;
+; Logic element usage by number of LUT inputs ;                                 ;
+;     -- 4 input functions                    ; 3773                            ;
+;     -- 3 input functions                    ; 3555                            ;
+;     -- <=2 input functions                  ; 4018                            ;
+;                                             ;                                 ;
+; Logic elements by mode                      ;                                 ;
+;     -- normal mode                          ; 7393                            ;
+;     -- arithmetic mode                      ; 3953                            ;
+;                                             ;                                 ;
+; Total registers                             ; 268                             ;
+;     -- Dedicated logic registers            ; 268                             ;
+;     -- I/O registers                        ; 0                               ;
+;                                             ;                                 ;
+; I/O pins                                    ; 48                              ;
+;                                             ;                                 ;
+; Embedded Multiplier 9-bit elements          ; 12                              ;
+;                                             ;                                 ;
+; Maximum fan-out node                        ; sensor:sensor1|distanciaMax[31] ;
+; Maximum fan-out                             ; 280                             ;
+; Total fan-out                               ; 34225                           ;
+; Average fan-out                             ; 2.92                            ;
++---------------------------------------------+---------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                           ;
-+-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name         ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |sensor                                   ; 9700 (253)          ; 96 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 47   ; 0            ; 0          ; |sensor                                                                                                                 ; sensor              ; work         ;
-;    |calcDistance:u4|                      ; 340 (57)            ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4                                                                                                 ; calcDistance        ; work         ;
-;       |lpm_divide:Div0|                   ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_3vl:auto_generated|  ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated                                                   ; lpm_divide_3vl      ; work         ;
-;             |sign_div_unsign_5nh:divider| ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider                       ; sign_div_unsign_5nh ; work         ;
-;                |alt_u_div_kke:divider|    ; 283 (283)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_kke:divider ; alt_u_div_kke       ; work         ;
-;    |clkTrigger:u2|                        ; 54 (54)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|clkTrigger:u2                                                                                                   ; clkTrigger          ; work         ;
-;    |divf:clkS|                            ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|divf:clkS                                                                                                       ; divf                ; work         ;
-;    |divf:u1|                              ; 9 (9)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|divf:u1                                                                                                         ; divf                ; work         ;
-;    |lpm_divide:Div0|                      ; 524 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_fbo:auto_generated|     ; 524 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated                                                                   ; lpm_divide_fbo      ; work         ;
-;          |abs_divider_kbg:divider|        ; 524 (36)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                           ; abs_divider_kbg     ; work         ;
-;             |alt_u_div_she:divider|       ; 449 (449)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                     ; alt_u_div_she       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Div1|                      ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_ibo:auto_generated|     ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated                                                                   ; lpm_divide_ibo      ; work         ;
-;          |abs_divider_nbg:divider|        ; 659 (32)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                           ; abs_divider_nbg     ; work         ;
-;             |alt_u_div_2ie:divider|       ; 617 (617)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                     ; alt_u_div_2ie       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Div2|                      ; 526 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_fbo:auto_generated|     ; 526 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated                                                                   ; lpm_divide_fbo      ; work         ;
-;          |abs_divider_kbg:divider|        ; 526 (35)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                           ; abs_divider_kbg     ; work         ;
-;             |alt_u_div_she:divider|       ; 449 (449)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                     ; alt_u_div_she       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Div3|                      ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_ibo:auto_generated|     ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated                                                                   ; lpm_divide_ibo      ; work         ;
-;          |abs_divider_nbg:divider|        ; 659 (32)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                           ; abs_divider_nbg     ; work         ;
-;             |alt_u_div_2ie:divider|       ; 617 (617)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                     ; alt_u_div_2ie       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Mod0|                      ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_25o:auto_generated|     ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
-;          |abs_divider_4dg:divider|        ; 1643 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
-;             |alt_u_div_ske:divider|       ; 1558 (1558)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Mod1|                      ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_25o:auto_generated|     ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
-;          |abs_divider_4dg:divider|        ; 1585 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
-;             |alt_u_div_ske:divider|       ; 1512 (1512)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Mod2|                      ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_25o:auto_generated|     ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
-;          |abs_divider_4dg:divider|        ; 1643 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
-;             |alt_u_div_ske:divider|       ; 1558 (1558)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |lpm_divide:Mod3|                      ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_25o:auto_generated|     ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
-;          |abs_divider_4dg:divider|        ; 1585 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
-;             |alt_u_div_ske:divider|       ; 1512 (1512)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
-;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
-;    |senalTrigger:u3|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|senalTrigger:u3                                                                                                 ; senalTrigger        ; work         ;
-;    |ss7:display0|                         ; 27 (27)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display0                                                                                                    ; ss7                 ; work         ;
-;    |ss7:display1|                         ; 41 (41)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display1                                                                                                    ; ss7                 ; work         ;
-;    |ss7:display2|                         ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display2                                                                                                    ; ss7                 ; work         ;
-;    |ss7:display3|                         ; 27 (27)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display3                                                                                                    ; ss7                 ; work         ;
-;    |ss7:display4|                         ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display4                                                                                                    ; ss7                 ; work         ;
-;    |ss7:display5|                         ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display5                                                                                                    ; ss7                 ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                      ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                             ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |controladorMotor                            ; 11346 (0)           ; 268 (0)                   ; 0           ; 0          ; 12           ; 0       ; 6         ; 48   ; 0            ; 0          ; |controladorMotor                                                                                                                                               ; controladorMotor    ; work         ;
+;    |divf:cl1|                                ; 27 (27)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|divf:cl1                                                                                                                                      ; divf                ; work         ;
+;    |senalPwm:pwm1|                           ; 38 (38)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|senalPwm:pwm1                                                                                                                                 ; senalPwm            ; work         ;
+;    |sensor:sensor1|                          ; 11281 (292)         ; 241 (67)                  ; 0           ; 0          ; 12           ; 0       ; 6         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1                                                                                                                                ; sensor              ; work         ;
+;       |calcDistance:u4|                      ; 380 (57)            ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDistance:u4                                                                                                                ; calcDistance        ; work         ;
+;          |lpm_divide:Div0|                   ; 323 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDistance:u4|lpm_divide:Div0                                                                                                ; lpm_divide          ; work         ;
+;             |lpm_divide_3vl:auto_generated|  ; 323 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated                                                                  ; lpm_divide_3vl      ; work         ;
+;                |sign_div_unsign_5nh:divider| ; 323 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider                                      ; sign_div_unsign_5nh ; work         ;
+;                   |alt_u_div_kke:divider|    ; 323 (323)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_kke:divider                ; alt_u_div_kke       ; work         ;
+;       |calcDuty:vel|                         ; 1503 (246)          ; 111 (111)                 ; 0           ; 0          ; 12           ; 0       ; 6         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel                                                                                                                   ; calcDuty            ; work         ;
+;          |lpm_divide:Div0|                   ; 1201 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_divide:Div0                                                                                                   ; lpm_divide          ; work         ;
+;             |lpm_divide_vco:auto_generated|  ; 1201 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_divide:Div0|lpm_divide_vco:auto_generated                                                                     ; lpm_divide_vco      ; work         ;
+;                |abs_divider_4dg:divider|     ; 1201 (62)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider                                             ; abs_divider_4dg     ; work         ;
+;                   |alt_u_div_ske:divider|    ; 1076 (1075)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                       ; alt_u_div_ske       ; work         ;
+;                      |add_sub_u3c:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c         ; work         ;
+;                   |lpm_abs_8b9:my_abs_den|   ; 63 (63)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_den                      ; lpm_abs_8b9         ; work         ;
+;          |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_mult:Mult0                                                                                                    ; lpm_mult            ; work         ;
+;             |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_mult:Mult0|mult_qgs:auto_generated                                                                            ; mult_qgs            ; work         ;
+;          |lpm_mult:Mult1|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_mult:Mult1                                                                                                    ; lpm_mult            ; work         ;
+;             |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|calcDuty:vel|lpm_mult:Mult1|mult_qgs:auto_generated                                                                            ; mult_qgs            ; work         ;
+;       |clkTrigger:u2|                        ; 53 (53)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|clkTrigger:u2                                                                                                                  ; clkTrigger          ; work         ;
+;       |divf:clkS|                            ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|divf:clkS                                                                                                                      ; divf                ; work         ;
+;       |divf:u1|                              ; 9 (9)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|divf:u1                                                                                                                        ; divf                ; work         ;
+;       |lpm_divide:Div0|                      ; 524 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div0                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_fbo:auto_generated|     ; 524 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div0|lpm_divide_fbo:auto_generated                                                                                  ; lpm_divide_fbo      ; work         ;
+;             |abs_divider_kbg:divider|        ; 524 (36)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                                          ; abs_divider_kbg     ; work         ;
+;                |alt_u_div_she:divider|       ; 449 (449)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                                    ; alt_u_div_she       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Div1|                      ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div1                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_ibo:auto_generated|     ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div1|lpm_divide_ibo:auto_generated                                                                                  ; lpm_divide_ibo      ; work         ;
+;             |abs_divider_nbg:divider|        ; 659 (32)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                                          ; abs_divider_nbg     ; work         ;
+;                |alt_u_div_2ie:divider|       ; 617 (617)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                                    ; alt_u_div_2ie       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Div2|                      ; 526 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div2                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_fbo:auto_generated|     ; 526 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div2|lpm_divide_fbo:auto_generated                                                                                  ; lpm_divide_fbo      ; work         ;
+;             |abs_divider_kbg:divider|        ; 526 (35)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                                          ; abs_divider_kbg     ; work         ;
+;                |alt_u_div_she:divider|       ; 449 (449)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                                    ; alt_u_div_she       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Div3|                      ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div3                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_ibo:auto_generated|     ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div3|lpm_divide_ibo:auto_generated                                                                                  ; lpm_divide_ibo      ; work         ;
+;             |abs_divider_nbg:divider|        ; 659 (32)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                                          ; abs_divider_nbg     ; work         ;
+;                |alt_u_div_2ie:divider|       ; 617 (617)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                                    ; alt_u_div_2ie       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Mod0|                      ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod0                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_25o:auto_generated|     ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod0|lpm_divide_25o:auto_generated                                                                                  ; lpm_divide_25o      ; work         ;
+;             |abs_divider_4dg:divider|        ; 1643 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;                |alt_u_div_ske:divider|       ; 1558 (1558)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                                    ; alt_u_div_ske       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Mod1|                      ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod1                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_25o:auto_generated|     ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod1|lpm_divide_25o:auto_generated                                                                                  ; lpm_divide_25o      ; work         ;
+;             |abs_divider_4dg:divider|        ; 1585 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;                |alt_u_div_ske:divider|       ; 1512 (1512)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                                    ; alt_u_div_ske       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Mod2|                      ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod2                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_25o:auto_generated|     ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod2|lpm_divide_25o:auto_generated                                                                                  ; lpm_divide_25o      ; work         ;
+;             |abs_divider_4dg:divider|        ; 1643 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;                |alt_u_div_ske:divider|       ; 1558 (1558)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                                    ; alt_u_div_ske       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |lpm_divide:Mod3|                      ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod3                                                                                                                ; lpm_divide          ; work         ;
+;          |lpm_divide_25o:auto_generated|     ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod3|lpm_divide_25o:auto_generated                                                                                  ; lpm_divide_25o      ; work         ;
+;             |abs_divider_4dg:divider|        ; 1585 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;                |alt_u_div_ske:divider|       ; 1512 (1512)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                                    ; alt_u_div_ske       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                                   ; lpm_abs_8b9         ; work         ;
+;       |senalTrigger:u3|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|senalTrigger:u3                                                                                                                ; senalTrigger        ; work         ;
+;       |ss7:display0|                         ; 27 (27)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|ss7:display0                                                                                                                   ; ss7                 ; work         ;
+;       |ss7:display1|                         ; 41 (41)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|ss7:display1                                                                                                                   ; ss7                 ; work         ;
+;       |ss7:display2|                         ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|ss7:display2                                                                                                                   ; ss7                 ; work         ;
+;       |ss7:display3|                         ; 27 (27)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|ss7:display3                                                                                                                   ; ss7                 ; work         ;
+;       |ss7:display4|                         ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|ss7:display4                                                                                                                   ; ss7                 ; work         ;
+;       |ss7:display5|                         ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |controladorMotor|sensor:sensor1|ss7:display5                                                                                                                   ; ss7                 ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 6           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 12          ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 2           ;
+; Mixed Sign Embedded Multipliers       ; 4           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------+
-; State Machine - |sensor|nextState                                                       ;
-+--------------+--------------+--------------+--------------+--------------+--------------+
-; Name         ; nextState.s4 ; nextState.s3 ; nextState.s2 ; nextState.s1 ; nextState.s0 ;
-+--------------+--------------+--------------+--------------+--------------+--------------+
-; nextState.s0 ; 0            ; 0            ; 0            ; 0            ; 0            ;
-; nextState.s1 ; 0            ; 0            ; 0            ; 1            ; 1            ;
-; nextState.s2 ; 0            ; 0            ; 1            ; 0            ; 1            ;
-; nextState.s3 ; 0            ; 1            ; 0            ; 0            ; 1            ;
-; nextState.s4 ; 1            ; 0            ; 0            ; 0            ; 1            ;
-+--------------+--------------+--------------+--------------+--------------+--------------+
++--------------------------------------------------------------------------------------------------------+
+; State Machine - |controladorMotor|sensor:sensor1|nextState                                             ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; Name         ; nextState.s5 ; nextState.s4 ; nextState.s3 ; nextState.s2 ; nextState.s1 ; nextState.s0 ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; nextState.s0 ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
+; nextState.s1 ; 0            ; 0            ; 0            ; 0            ; 1            ; 1            ;
+; nextState.s2 ; 0            ; 0            ; 0            ; 1            ; 0            ; 1            ;
+; nextState.s3 ; 0            ; 0            ; 1            ; 0            ; 0            ; 1            ;
+; nextState.s4 ; 0            ; 1            ; 0            ; 0            ; 0            ; 1            ;
+; nextState.s5 ; 1            ; 0            ; 0            ; 0            ; 0            ; 1            ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; calcDistance:u4|distancia[22..30]      ; Stuck at GND due to stuck port data_in ;
-; distanciaMax[23..30]                   ; Merged with distanciaMax[22]           ;
-; distanciaActual[23..30]                ; Merged with distanciaActual[22]        ;
-; distanciaMax[22]                       ; Stuck at GND due to stuck port data_in ;
-; distanciaActual[22]                    ; Stuck at GND due to stuck port data_in ;
-; divf:u1|conteo[0]                      ; Merged with divf:clkS|conteo[0]        ;
-; calcDistance:u4|distancia[12..21]      ; Stuck at GND due to stuck port data_in ;
-; distanciaMax[12..21]                   ; Stuck at GND due to stuck port data_in ;
-; distanciaActual[12..21]                ; Stuck at GND due to stuck port data_in ;
-; calcDistance:u4|distancia[31]          ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 59 ;                                        ;
-+----------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                ;
++--------------------------------------------------+------------------------------------------------+
+; Register name                                    ; Reason for Removal                             ;
++--------------------------------------------------+------------------------------------------------+
+; sensor:sensor1|calcDistance:u4|distancia[22..30] ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|distanciaMax[23..30]              ; Merged with sensor:sensor1|distanciaMax[22]    ;
+; sensor:sensor1|distanciaActual[23..30]           ; Merged with sensor:sensor1|distanciaActual[22] ;
+; sensor:sensor1|distanciaMax[22]                  ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|calcDuty:vel|distMaxHalf[22..29]  ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|distanciaActual[22]               ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|divf:u1|conteo[0]                 ; Merged with sensor:sensor1|divf:clkS|conteo[0] ;
+; sensor:sensor1|calcDistance:u4|distancia[12..21] ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|distanciaMax[12..21]              ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|calcDuty:vel|distMaxHalf[12..21]  ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|distanciaActual[12..21]           ; Stuck at GND due to stuck port data_in         ;
+; sensor:sensor1|calcDistance:u4|distancia[31]     ; Stuck at GND due to stuck port data_in         ;
+; Total Number of Removed Registers = 77           ;                                                ;
++--------------------------------------------------+------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                        ;
-+-------------------------------+---------------------------+----------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register ;
-+-------------------------------+---------------------------+----------------------------------------+
-; calcDistance:u4|distancia[22] ; Stuck at GND              ; distanciaMax[22], distanciaActual[22]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[21] ; Stuck at GND              ; distanciaMax[21], distanciaActual[21]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[20] ; Stuck at GND              ; distanciaMax[20], distanciaActual[20]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[19] ; Stuck at GND              ; distanciaMax[19], distanciaActual[19]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[18] ; Stuck at GND              ; distanciaMax[18], distanciaActual[18]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[17] ; Stuck at GND              ; distanciaMax[17], distanciaActual[17]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[16] ; Stuck at GND              ; distanciaMax[16], distanciaActual[16]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[15] ; Stuck at GND              ; distanciaMax[15], distanciaActual[15]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[14] ; Stuck at GND              ; distanciaMax[14], distanciaActual[14]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[13] ; Stuck at GND              ; distanciaMax[13], distanciaActual[13]  ;
-;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[12] ; Stuck at GND              ; distanciaMax[12], distanciaActual[12]  ;
-;                               ; due to stuck port data_in ;                                        ;
-+-------------------------------+---------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                 ;
++----------------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; Register name                                ; Reason for Removal        ; Registers Removed due to This Register                                           ;
++----------------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; sensor:sensor1|calcDistance:u4|distancia[22] ; Stuck at GND              ; sensor:sensor1|distanciaMax[22], sensor:sensor1|calcDuty:vel|distMaxHalf[28],    ;
+;                                              ; due to stuck port data_in ; sensor:sensor1|calcDuty:vel|distMaxHalf[27],                                     ;
+;                                              ;                           ; sensor:sensor1|calcDuty:vel|distMaxHalf[26],                                     ;
+;                                              ;                           ; sensor:sensor1|calcDuty:vel|distMaxHalf[25],                                     ;
+;                                              ;                           ; sensor:sensor1|calcDuty:vel|distMaxHalf[24],                                     ;
+;                                              ;                           ; sensor:sensor1|calcDuty:vel|distMaxHalf[23],                                     ;
+;                                              ;                           ; sensor:sensor1|calcDuty:vel|distMaxHalf[22], sensor:sensor1|distanciaActual[22], ;
+;                                              ;                           ; sensor:sensor1|calcDuty:vel|distMaxHalf[21]                                      ;
+; sensor:sensor1|calcDistance:u4|distancia[21] ; Stuck at GND              ; sensor:sensor1|distanciaMax[21], sensor:sensor1|distanciaActual[21]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[20] ; Stuck at GND              ; sensor:sensor1|distanciaMax[20], sensor:sensor1|distanciaActual[20]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[19] ; Stuck at GND              ; sensor:sensor1|distanciaMax[19], sensor:sensor1|distanciaActual[19]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[18] ; Stuck at GND              ; sensor:sensor1|distanciaMax[18], sensor:sensor1|distanciaActual[18]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[17] ; Stuck at GND              ; sensor:sensor1|distanciaMax[17], sensor:sensor1|distanciaActual[17]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[16] ; Stuck at GND              ; sensor:sensor1|distanciaMax[16], sensor:sensor1|distanciaActual[16]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[15] ; Stuck at GND              ; sensor:sensor1|distanciaMax[15], sensor:sensor1|distanciaActual[15]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[14] ; Stuck at GND              ; sensor:sensor1|distanciaMax[14], sensor:sensor1|distanciaActual[14]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[13] ; Stuck at GND              ; sensor:sensor1|distanciaMax[13], sensor:sensor1|distanciaActual[13]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
+; sensor:sensor1|calcDistance:u4|distancia[12] ; Stuck at GND              ; sensor:sensor1|distanciaMax[12], sensor:sensor1|distanciaActual[12]              ;
+;                                              ; due to stuck port data_in ;                                                                                  ;
++----------------------------------------------+---------------------------+----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -387,251 +445,401 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 96    ;
-; Number of registers using Synchronous Clear  ; 16    ;
+; Total registers                              ; 268   ;
+; Number of registers using Synchronous Clear  ; 46    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 61    ;
+; Number of registers using Asynchronous Clear ; 174   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 32    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |sensor|Selector64         ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |sensor|Selector66         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; sensor:sensor1|calcDuty:vel|velocidad[31] ; 1       ;
+; sensor:sensor1|calcDuty:vel|velocidad[0]  ; 1       ;
+; Total number of inverted registers = 2    ;         ;
++-------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: divf:clkS ;
-+----------------+-------+-------------------------------+
-; Parameter Name ; Value ; Type                          ;
-+----------------+-------+-------------------------------+
-; num            ; 5     ; Signed Integer                ;
-+----------------+-------+-------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |controladorMotor|sensor:sensor1|calcDuty:vel|duty[14]      ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |controladorMotor|sensor:sensor1|calcDuty:vel|velocidad[18] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |controladorMotor|sensor:sensor1|calcDuty:vel|duty[31]      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |controladorMotor|sensor:sensor1|calcDuty:vel|velocidad[0]  ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |controladorMotor|sensor:sensor1|Selector96                 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |controladorMotor|sensor:sensor1|Selector100                ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |controladorMotor|sensor:sensor1|Selector101                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divf:cl1 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; num            ; 25000 ; Signed Integer               ;
++----------------+-------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: divf:u1 ;
-+----------------+-------+-----------------------------+
-; Parameter Name ; Value ; Type                        ;
-+----------------+-------+-----------------------------+
-; num            ; 25    ; Signed Integer              ;
-+----------------+-------+-----------------------------+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sensor:sensor1|divf:clkS ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; num            ; 5     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sensor:sensor1|divf:u1 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; num            ; 25    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 32             ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 5              ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 32             ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 8              ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_ibo ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 8              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_ibo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod2 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 32             ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 5              ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Mod3 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 32             ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div3 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 8              ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_ibo ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div2 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: calcDistance:u4|lpm_divide:Div0 ;
-+------------------------+----------------+----------------------------------------+
-; Parameter Name         ; Value          ; Type                                   ;
-+------------------------+----------------+----------------------------------------+
-; LPM_WIDTHN             ; 22             ; Untyped                                ;
-; LPM_WIDTHD             ; 11             ; Untyped                                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
-; LPM_PIPELINE           ; 0              ; Untyped                                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
-; CBXI_PARAMETER         ; lpm_divide_3vl ; Untyped                                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
-+------------------------+----------------+----------------------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|lpm_divide:Div3 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 8              ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_ibo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDistance:u4|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 22             ; Untyped                                               ;
+; LPM_WIDTHD             ; 11             ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_3vl ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDuty:vel|lpm_mult:Mult0 ;
++------------------------------------------------+----------+---------------------------------+
+; Parameter Name                                 ; Value    ; Type                            ;
++------------------------------------------------+----------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                         ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                         ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                         ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                         ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                         ;
+; LATENCY                                        ; 0        ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; USE_EAB                                        ; OFF      ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                         ;
++------------------------------------------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDuty:vel|lpm_mult:Mult1 ;
++------------------------------------------------+----------+---------------------------------+
+; Parameter Name                                 ; Value    ; Type                            ;
++------------------------------------------------+----------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                         ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                         ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                         ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                         ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                         ;
+; LATENCY                                        ; 0        ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; USE_EAB                                        ; OFF      ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                         ;
++------------------------------------------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sensor:sensor1|calcDuty:vel|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                               ;
++------------------------+----------------+----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                            ;
+; LPM_WIDTHD             ; 32             ; Untyped                                            ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                                            ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                            ;
+; CBXI_PARAMETER         ; lpm_divide_vco ; Untyped                                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                     ;
++------------------------+----------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                     ;
++---------------------------------------+--------------------------------------------+
+; Name                                  ; Value                                      ;
++---------------------------------------+--------------------------------------------+
+; Number of entity instances            ; 2                                          ;
+; Entity Instance                       ; sensor:sensor1|calcDuty:vel|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                         ;
+;     -- LPM_WIDTHB                     ; 32                                         ;
+;     -- LPM_WIDTHP                     ; 64                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; sensor:sensor1|calcDuty:vel|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 32                                         ;
+;     -- LPM_WIDTHB                     ; 32                                         ;
+;     -- LPM_WIDTHP                     ; 64                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
++---------------------------------------+--------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -639,26 +847,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 47                          ;
-; cycloneiii_ff         ; 96                          ;
-;     CLR               ; 43                          ;
-;     CLR SCLR          ; 16                          ;
-;     ENA CLR           ; 2                           ;
-;     plain             ; 35                          ;
-; cycloneiii_lcell_comb ; 9700                        ;
-;     arith             ; 3163                        ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 388                         ;
-;         3 data inputs ; 2771                        ;
-;     normal            ; 6537                        ;
-;         0 data inputs ; 245                         ;
-;         1 data inputs ; 12                          ;
-;         2 data inputs ; 3093                        ;
-;         3 data inputs ; 71                          ;
-;         4 data inputs ; 3116                        ;
+; boundary_port         ; 48                          ;
+; cycloneiii_ff         ; 268                         ;
+;     CLR               ; 128                         ;
+;     CLR SCLR          ; 46                          ;
+;     ENA               ; 32                          ;
+;     plain             ; 62                          ;
+; cycloneiii_lcell_comb ; 11346                       ;
+;     arith             ; 3953                        ;
+;         1 data inputs ; 59                          ;
+;         2 data inputs ; 478                         ;
+;         3 data inputs ; 3416                        ;
+;     normal            ; 7393                        ;
+;         0 data inputs ; 279                         ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 3187                        ;
+;         3 data inputs ; 139                         ;
+;         4 data inputs ; 3773                        ;
+; cycloneiii_mac_mult   ; 6                           ;
+; cycloneiii_mac_out    ; 6                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 207.20                      ;
-; Average LUT depth     ; 150.50                      ;
+; Average LUT depth     ; 138.53                      ;
 +-----------------------+-----------------------------+
 
 
@@ -677,7 +887,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun May 12 01:11:38 2024
+    Info: Processing started: Sun May 12 03:18:02 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off robotDetector -c robotDetector
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -685,7 +895,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file ss7.vhd
     Info (12022): Found design unit 1: ss7-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/ss7.vhd Line: 9
     Info (12023): Found entity 1: ss7 File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/ss7.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file sensor.vhd
-    Info (12022): Found design unit 1: sensor-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 14
+    Info (12022): Found design unit 1: sensor-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 15
     Info (12023): Found entity 1: sensor File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file senaltrigger.vhd
     Info (12022): Found design unit 1: senalTrigger-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalTrigger.vhd Line: 9
@@ -699,32 +909,49 @@ Info (12021): Found 2 design units, including 1 entities, in source file clktrig
 Info (12021): Found 2 design units, including 1 entities, in source file calcdistance.vhd
     Info (12022): Found design unit 1: calcDistance-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 9
     Info (12023): Found entity 1: calcDistance File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 4
-Info (12127): Elaborating entity "sensor" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at sensor.vhd(68): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 68
-Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "divf:clkS" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 36
-Info (12129): Elaborating entity "clkTrigger" using architecture "A:bhv" for hierarchy "clkTrigger:u2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 39
-Info (12129): Elaborating entity "senalTrigger" using architecture "A:bhv" for hierarchy "senalTrigger:u3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 40
+Info (12021): Found 2 design units, including 1 entities, in source file calcduty.vhd
+    Info (12022): Found design unit 1: calcDuty-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 11
+    Info (12023): Found entity 1: calcDuty File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file senalpwm.vhd
+    Info (12022): Found design unit 1: senalPwm-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalPwm.vhd Line: 11
+    Info (12023): Found entity 1: senalPwm File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalPwm.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file controladormotor.vhd
+    Info (12022): Found design unit 1: controladorMotor-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 13
+    Info (12023): Found entity 1: controladorMotor File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 4
+Info (12127): Elaborating entity "controladorMotor" for the top level hierarchy
+Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "divf:cl1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 17
+Info (12129): Elaborating entity "senalPwm" using architecture "A:bhv" for hierarchy "senalPwm:pwm1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 18
+Info (12129): Elaborating entity "sensor" using architecture "A:bhv" for hierarchy "sensor:sensor1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 19
+Warning (10492): VHDL Process Statement warning at sensor.vhd(81): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 81
+Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "sensor:sensor1|divf:clkS" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 43
+Info (12129): Elaborating entity "clkTrigger" using architecture "A:bhv" for hierarchy "sensor:sensor1|clkTrigger:u2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 46
+Info (12129): Elaborating entity "senalTrigger" using architecture "A:bhv" for hierarchy "sensor:sensor1|senalTrigger:u3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 47
 Warning (10492): VHDL Process Statement warning at senalTrigger.vhd(14): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalTrigger.vhd Line: 14
 Warning (10492): VHDL Process Statement warning at senalTrigger.vhd(15): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalTrigger.vhd Line: 15
 Warning (10492): VHDL Process Statement warning at senalTrigger.vhd(19): signal "echo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalTrigger.vhd Line: 19
-Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "divf:u1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 44
-Info (12129): Elaborating entity "calcDistance" using architecture "A:bhv" for hierarchy "calcDistance:u4" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 45
+Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "sensor:sensor1|divf:u1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 51
+Info (12129): Elaborating entity "calcDistance" using architecture "A:bhv" for hierarchy "sensor:sensor1|calcDistance:u4" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 52
 Warning (10492): VHDL Process Statement warning at calcDistance.vhd(14): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 14
 Warning (10492): VHDL Process Statement warning at calcDistance.vhd(40): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 40
 Warning (10492): VHDL Process Statement warning at calcDistance.vhd(41): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 41
-Info (12129): Elaborating entity "ss7" using architecture "A:bhv" for hierarchy "ss7:display0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 48
-Info (278001): Inferred 9 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 57
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 59
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 61
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 62
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 62
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 63
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "calcDistance:u4|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 57
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 57
+Info (12129): Elaborating entity "ss7" using architecture "A:bhv" for hierarchy "sensor:sensor1|ss7:display0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 55
+Info (12129): Elaborating entity "calcDuty" using architecture "A:bhv" for hierarchy "sensor:sensor1|calcDuty:vel" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 63
+Warning (10492): VHDL Process Statement warning at calcDuty.vhd(18): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 18
+Info (278001): Inferred 12 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 65
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Mod1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Div1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 67
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Mod2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 69
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Mod3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 70
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Div2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 70
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Div3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 71
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|calcDistance:u4|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sensor:sensor1|calcDuty:vel|Mult0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 39
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sensor:sensor1|calcDuty:vel|Mult1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 41
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|calcDuty:vel|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 26
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|lpm_divide:Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 65
+Info (12133): Instantiated megafunction "sensor:sensor1|lpm_divide:Mod0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 65
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -742,15 +969,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_u3c File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/add_sub_u3c.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
     Info (12023): Found entity 1: lpm_abs_8b9 File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_abs_8b9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
-Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|lpm_divide:Mod1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
+Info (12133): Instantiated megafunction "sensor:sensor1|lpm_divide:Mod1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|lpm_divide:Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
+Info (12133): Instantiated megafunction "sensor:sensor1|lpm_divide:Div0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -764,8 +991,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_she File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/alt_u_div_she.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_o99.tdf
     Info (12023): Found entity 1: lpm_abs_o99 File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_abs_o99.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 59
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|lpm_divide:Div1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 67
+Info (12133): Instantiated megafunction "sensor:sensor1|lpm_divide:Div1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 67
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -779,8 +1006,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_2ie File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/alt_u_div_2ie.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_r99.tdf
     Info (12023): Found entity 1: lpm_abs_r99 File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_abs_r99.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "calcDistance:u4|lpm_divide:Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
-Info (12133): Instantiated megafunction "calcDistance:u4|lpm_divide:Div0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDistance:u4|lpm_divide:Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
+Info (12133): Instantiated megafunction "sensor:sensor1|calcDistance:u4|lpm_divide:Div0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
     Info (12134): Parameter "LPM_WIDTHN" = "22"
     Info (12134): Parameter "LPM_WIDTHD" = "11"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -791,34 +1018,83 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_5nh File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/sign_div_unsign_5nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kke.tdf
     Info (12023): Found entity 1: alt_u_div_kke File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/alt_u_div_kke.tdf Line: 27
-Info (13014): Ignored 194 buffer(s)
-    Info (13016): Ignored 194 CARRY_SUM buffer(s)
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 39
+Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 39
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_qgs.tdf
+    Info (12023): Found entity 1: mult_qgs File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 41
+Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 41
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_divide:Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 26
+Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_divide:Div0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 26
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_vco.tdf
+    Info (12023): Found entity 1: lpm_divide_vco File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_divide_vco.tdf Line: 25
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1|mult_qgs:auto_generated|mac_mult7" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf Line: 67
+        Warning (14320): Synthesized away node "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1|mult_qgs:auto_generated|mac_out8" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf Line: 91
+        Warning (14320): Synthesized away node "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0|mult_qgs:auto_generated|mac_mult7" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf Line: 67
+        Warning (14320): Synthesized away node "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0|mult_qgs:auto_generated|mac_out8" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf Line: 91
+Info (13014): Ignored 393 buffer(s)
+    Info (13016): Ignored 225 CARRY_SUM buffer(s)
+    Info (13019): Ignored 168 SOFT buffer(s)
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "calcDistance:u4|distancia[0]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[0]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[1]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[1]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[2]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[2]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[5]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[5]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[6]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[6]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[7]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[7]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[8]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[8]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Warning (13310): Register "calcDistance:u4|distancia[9]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[9]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[0]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[0]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[1]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[1]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[2]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[2]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[5]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[5]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[6]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[6]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[7]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[7]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[8]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[8]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[9]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[9]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register distanciaMax[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
-    Critical Warning (18010): Register distanciaMax[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
-    Critical Warning (18010): Register distanciaActual[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
-    Critical Warning (18010): Register distanciaActual[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
-    Critical Warning (18010): Register calcDistance:u4|distancia[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Critical Warning (18010): Register sensor:sensor1|distanciaMax[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
+    Critical Warning (18010): Register sensor:sensor1|distanciaMax[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
+    Critical Warning (18010): Register sensor:sensor1|distanciaActual[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
+    Critical Warning (18010): Register sensor:sensor1|distanciaActual[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
+    Critical Warning (18010): Register sensor:sensor1|dty[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
+    Critical Warning (18010): Register sensor:sensor1|dty[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
+    Critical Warning (18010): Register sensor:sensor1|calcDistance:u4|distancia[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|duty[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|duty[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|distMaxHalf[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|distMaxHalf[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|pendiente[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|pendiente[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9751 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 11412 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 43 output pins
-    Info (21061): Implemented 9704 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 4963 megabytes
-    Info: Processing ended: Sun May 12 01:11:48 2024
+    Info (21059): Implemented 44 output pins
+    Info (21061): Implemented 11352 logic cells
+    Info (21062): Implemented 12 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 4975 megabytes
+    Info: Processing ended: Sun May 12 03:18:12 2024
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:09
 
 

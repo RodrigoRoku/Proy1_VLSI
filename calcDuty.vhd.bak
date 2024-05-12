@@ -1,0 +1,46 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity calcDuty is
+	port(	en, rst: 							in std_logic; 
+			distMax, disAct : 	in integer;
+			duty:									out integer);
+end entity;
+
+architecture bhv of calcDuty is
+	signal velocidad, distMaxHalf, pendiente: integer;
+begin
+	if(rst = '1') then
+		duty = 0;
+		distMaxHalf <= 0;
+		pendiente <= 0;
+	else
+		
+		distMaxHalf <= distMax/2
+		pendiente <= 1000 / (distMax - distMaxHalf);
+		if(en = '1') then
+		
+			if(distMax < disAct) then
+			
+				duty <= 0;
+				velocidad <= 0;
+				
+			else
+				
+				if(disAct >= distMaxHalf) then
+					velocidad <= pendiente * (distMax - disAct);
+				else
+					velocidad <= (pendiente * (distMaxHalf + disAct)) - 1000;
+				end if;
+				
+				duty <= velocidad;
+			end if;
+		else
+			duty <= 0;
+			distMaxHalf <= 0;
+			velocidad <= 0;
+			pendiente <= 0;
+		end if;
+	end if;
+end architecture;
+
