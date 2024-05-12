@@ -1,5 +1,5 @@
 Flow report for robotDetector
-Sat May 11 23:21:48 2024
+Sun May 12 01:12:10 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Sat May 11 23:21:48 2024          ;
+; Flow Status                        ; Successful - Sun May 12 01:12:10 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; robotDetector                                  ;
 ; Top-level Entity Name              ; sensor                                         ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C7G                                 ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 2,387 / 49,760 ( 5 % )                         ;
-;     Total combinational functions  ; 2,382 / 49,760 ( 5 % )                         ;
-;     Dedicated logic registers      ; 60 / 49,760 ( < 1 % )                          ;
-; Total registers                    ; 60                                             ;
-; Total pins                         ; 26 / 360 ( 7 % )                               ;
+; Total logic elements               ; 9,706 / 49,760 ( 20 % )                        ;
+;     Total combinational functions  ; 9,702 / 49,760 ( 19 % )                        ;
+;     Dedicated logic registers      ; 96 / 49,760 ( < 1 % )                          ;
+; Total registers                    ; 96                                             ;
+; Total pins                         ; 47 / 360 ( 13 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/11/2024 23:21:26 ;
+; Start date & time ; 05/12/2024 01:11:38 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; robotDetector       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 220449201351232.171549128626456        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 220449201351232.171549789838192        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -101,12 +101,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4944 MB             ; 00:00:07                           ;
-; Fitter               ; 00:00:08     ; 1.4                     ; 6628 MB             ; 00:00:09                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4719 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 2.0                     ; 4981 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4656 MB             ; 00:00:00                           ;
-; Total                ; 00:00:19     ; --                      ; --                  ; 00:00:20                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4963 MB             ; 00:00:08                           ;
+; Fitter               ; 00:00:15     ; 1.9                     ; 6720 MB             ; 00:00:23                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4737 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:03     ; 4.1                     ; 5022 MB             ; 00:00:07                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4686 MB             ; 00:00:01                           ;
+; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:40                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

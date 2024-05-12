@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat May 11 23:21:34 2024
+Analysis & Synthesis Status : Successful - Sun May 12 01:11:48 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : robotDetector
 Top-level Entity Name : sensor
 Family : MAX 10
-Total logic elements : 2,381
-    Total combinational functions : 2,381
-    Dedicated logic registers : 60
-Total registers : 60
-Total pins : 26
+Total logic elements : 9,702
+    Total combinational functions : 9,700
+    Dedicated logic registers : 96
+Total registers : 96
+Total pins : 47
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
