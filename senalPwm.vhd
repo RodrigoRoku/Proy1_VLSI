@@ -20,7 +20,7 @@ begin
 						conteo <= conteo + 1;
 					end if;
 					
-					if (conteo <= duty) then
+					if (conteo < duty) then
 						pwm <= '1';
 					else
 						pwm <= '0';

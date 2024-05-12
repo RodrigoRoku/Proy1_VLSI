@@ -1,5 +1,5 @@
 Timing Analyzer report for robotDetector
-Sun May 12 03:18:37 2024
+Sun May 12 10:18:15 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -94,13 +94,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 4.47        ;
+; Average used               ; 4.49        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  24.4%      ;
-;     Processors 3-16        ;  23.1%      ;
+;     Processor 2            ;  24.5%      ;
+;     Processors 3-16        ;  23.2%      ;
 +----------------------------+-------------+
 
 
@@ -122,10 +122,10 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                    ; Note ;
 +------------+-----------------+-------------------------------+------+
-; 7.7 MHz    ; 7.7 MHz         ; sensor:sensor1|divf:clkS|clkl ;      ;
-; 202.39 MHz ; 202.39 MHz      ; clk                           ;      ;
-; 292.06 MHz ; 292.06 MHz      ; sensor:sensor1|divf:u1|clkl   ;      ;
-; 346.86 MHz ; 346.86 MHz      ; divf:cl1|clkl                 ;      ;
+; 6.87 MHz   ; 6.87 MHz        ; sensor:sensor1|divf:clkS|clkl ;      ;
+; 198.61 MHz ; 198.61 MHz      ; clk                           ;      ;
+; 295.16 MHz ; 295.16 MHz      ; divf:cl1|clkl                 ;      ;
+; 378.93 MHz ; 378.93 MHz      ; sensor:sensor1|divf:u1|clkl   ;      ;
 +------------+-----------------+-------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -135,11 +135,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------+----------+---------------+
 ; Clock                         ; Slack    ; End Point TNS ;
 +-------------------------------+----------+---------------+
-; sensor:sensor1|divf:clkS|clkl ; -128.863 ; -5045.838     ;
-; echo                          ; -38.826  ; -273.768      ;
-; clk                           ; -3.941   ; -89.985       ;
-; sensor:sensor1|divf:u1|clkl   ; -2.424   ; -22.055       ;
-; divf:cl1|clkl                 ; -1.883   ; -16.555       ;
+; sensor:sensor1|divf:clkS|clkl ; -144.643 ; -4711.498     ;
+; echo                          ; -40.561  ; -278.389      ;
+; clk                           ; -4.035   ; -86.738       ;
+; divf:cl1|clkl                 ; -2.388   ; -19.376       ;
+; sensor:sensor1|divf:u1|clkl   ; -1.639   ; -18.856       ;
 +-------------------------------+----------+---------------+
 
 
@@ -148,11 +148,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------+-------+---------------+
 ; Clock                         ; Slack ; End Point TNS ;
 +-------------------------------+-------+---------------+
-; sensor:sensor1|divf:clkS|clkl ; 0.266 ; 0.000         ;
-; clk                           ; 0.339 ; 0.000         ;
-; sensor:sensor1|divf:u1|clkl   ; 0.614 ; 0.000         ;
-; divf:cl1|clkl                 ; 0.659 ; 0.000         ;
-; echo                          ; 2.557 ; 0.000         ;
+; sensor:sensor1|divf:clkS|clkl ; 0.160 ; 0.000         ;
+; sensor:sensor1|divf:u1|clkl   ; 0.194 ; 0.000         ;
+; clk                           ; 0.341 ; 0.000         ;
+; divf:cl1|clkl                 ; 0.639 ; 0.000         ;
+; echo                          ; 2.762 ; 0.000         ;
 +-------------------------------+-------+---------------+
 
 
@@ -161,8 +161,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------+--------+---------------+
 ; Clock                       ; Slack  ; End Point TNS ;
 +-----------------------------+--------+---------------+
-; sensor:sensor1|divf:u1|clkl ; -1.951 ; -30.956       ;
-; echo                        ; -1.740 ; -12.745       ;
+; echo                        ; -1.689 ; -12.986       ;
+; sensor:sensor1|divf:u1|clkl ; -1.532 ; -24.512       ;
 +-----------------------------+--------+---------------+
 
 
@@ -171,8 +171,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------+-------+---------------+
 ; Clock                       ; Slack ; End Point TNS ;
 +-----------------------------+-------+---------------+
-; echo                        ; 1.009 ; 0.000         ;
-; sensor:sensor1|divf:u1|clkl ; 2.277 ; 0.000         ;
+; echo                        ; 1.138 ; 0.000         ;
+; sensor:sensor1|divf:u1|clkl ; 1.869 ; 0.000         ;
 +-----------------------------+-------+---------------+
 
 
@@ -181,9 +181,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------+--------+---------------+
 ; Clock                         ; Slack  ; End Point TNS ;
 +-------------------------------+--------+---------------+
-; clk                           ; -3.000 ; -74.553       ;
+; clk                           ; -3.000 ; -64.732       ;
 ; echo                          ; -3.000 ; -19.836       ;
-; sensor:sensor1|divf:clkS|clkl ; -1.403 ; -249.734      ;
+; sensor:sensor1|divf:clkS|clkl ; -1.403 ; -140.300      ;
 ; sensor:sensor1|divf:u1|clkl   ; -1.403 ; -22.448       ;
 ; divf:cl1|clkl                 ; -1.403 ; -15.433       ;
 +-------------------------------+--------+---------------+
@@ -195,16 +195,16 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 No synchronizer chains to report.
 
 
-+---------------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                                   ;
-+------------+-----------------+-------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                    ; Note ;
-+------------+-----------------+-------------------------------+------+
-; 8.48 MHz   ; 8.48 MHz        ; sensor:sensor1|divf:clkS|clkl ;      ;
-; 218.25 MHz ; 218.25 MHz      ; clk                           ;      ;
-; 320.62 MHz ; 320.62 MHz      ; sensor:sensor1|divf:u1|clkl   ;      ;
-; 383.73 MHz ; 383.73 MHz      ; divf:cl1|clkl                 ;      ;
-+------------+-----------------+-------------------------------+------+
++---------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                             ;
++------------+-----------------+-------------------------------+------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                    ; Note                                           ;
++------------+-----------------+-------------------------------+------------------------------------------------+
+; 7.57 MHz   ; 7.57 MHz        ; sensor:sensor1|divf:clkS|clkl ;                                                ;
+; 214.0 MHz  ; 214.0 MHz       ; clk                           ;                                                ;
+; 320.51 MHz ; 320.51 MHz      ; divf:cl1|clkl                 ;                                                ;
+; 420.17 MHz ; 416.15 MHz      ; sensor:sensor1|divf:u1|clkl   ; limit due to minimum period restriction (tmin) ;
++------------+-----------------+-------------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -213,11 +213,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------+----------+---------------+
 ; Clock                         ; Slack    ; End Point TNS ;
 +-------------------------------+----------+---------------+
-; sensor:sensor1|divf:clkS|clkl ; -116.890 ; -4584.206     ;
-; echo                          ; -35.222  ; -248.058      ;
-; clk                           ; -3.582   ; -77.832       ;
-; sensor:sensor1|divf:u1|clkl   ; -2.119   ; -19.039       ;
-; divf:cl1|clkl                 ; -1.606   ; -13.949       ;
+; sensor:sensor1|divf:clkS|clkl ; -131.062 ; -4268.441     ;
+; echo                          ; -36.850  ; -252.774      ;
+; clk                           ; -3.673   ; -75.691       ;
+; divf:cl1|clkl                 ; -2.120   ; -16.530       ;
+; sensor:sensor1|divf:u1|clkl   ; -1.380   ; -15.654       ;
 +-------------------------------+----------+---------------+
 
 
@@ -226,11 +226,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------+-------+---------------+
 ; Clock                         ; Slack ; End Point TNS ;
 +-------------------------------+-------+---------------+
-; clk                           ; 0.305 ; 0.000         ;
-; sensor:sensor1|divf:clkS|clkl ; 0.307 ; 0.000         ;
-; sensor:sensor1|divf:u1|clkl   ; 0.594 ; 0.000         ;
-; divf:cl1|clkl                 ; 0.609 ; 0.000         ;
-; echo                          ; 2.351 ; 0.000         ;
+; sensor:sensor1|divf:clkS|clkl ; 0.262 ; 0.000         ;
+; sensor:sensor1|divf:u1|clkl   ; 0.302 ; 0.000         ;
+; clk                           ; 0.306 ; 0.000         ;
+; divf:cl1|clkl                 ; 0.592 ; 0.000         ;
+; echo                          ; 2.536 ; 0.000         ;
 +-------------------------------+-------+---------------+
 
 
@@ -239,8 +239,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------+--------+---------------+
 ; Clock                       ; Slack  ; End Point TNS ;
 +-----------------------------+--------+---------------+
-; sensor:sensor1|divf:u1|clkl ; -1.734 ; -27.484       ;
-; echo                        ; -1.524 ; -10.538       ;
+; echo                        ; -1.497 ; -11.085       ;
+; sensor:sensor1|divf:u1|clkl ; -1.341 ; -21.456       ;
 +-----------------------------+--------+---------------+
 
 
@@ -249,8 +249,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------+-------+---------------+
 ; Clock                       ; Slack ; End Point TNS ;
 +-----------------------------+-------+---------------+
-; echo                        ; 0.915 ; 0.000         ;
-; sensor:sensor1|divf:u1|clkl ; 2.063 ; 0.000         ;
+; echo                        ; 1.057 ; 0.000         ;
+; sensor:sensor1|divf:u1|clkl ; 1.689 ; 0.000         ;
 +-----------------------------+-------+---------------+
 
 
@@ -259,9 +259,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------+--------+---------------+
 ; Clock                         ; Slack  ; End Point TNS ;
 +-------------------------------+--------+---------------+
-; clk                           ; -3.000 ; -74.553       ;
+; clk                           ; -3.000 ; -64.732       ;
 ; echo                          ; -3.000 ; -19.836       ;
-; sensor:sensor1|divf:clkS|clkl ; -1.403 ; -249.734      ;
+; sensor:sensor1|divf:clkS|clkl ; -1.403 ; -140.300      ;
 ; sensor:sensor1|divf:u1|clkl   ; -1.403 ; -22.448       ;
 ; divf:cl1|clkl                 ; -1.403 ; -15.433       ;
 +-------------------------------+--------+---------------+
@@ -278,11 +278,11 @@ No synchronizer chains to report.
 +-------------------------------+---------+---------------+
 ; Clock                         ; Slack   ; End Point TNS ;
 +-------------------------------+---------+---------------+
-; sensor:sensor1|divf:clkS|clkl ; -52.537 ; -2030.812     ;
-; echo                          ; -15.335 ; -106.439      ;
-; clk                           ; -1.235  ; -12.944       ;
-; sensor:sensor1|divf:u1|clkl   ; -0.383  ; -4.285        ;
-; divf:cl1|clkl                 ; -0.221  ; -1.286        ;
+; sensor:sensor1|divf:clkS|clkl ; -59.622 ; -1924.247     ;
+; echo                          ; -16.261 ; -108.525      ;
+; clk                           ; -1.333  ; -13.267       ;
+; divf:cl1|clkl                 ; -0.402  ; -2.181        ;
+; sensor:sensor1|divf:u1|clkl   ; -0.046  ; -0.736        ;
 +-------------------------------+---------+---------------+
 
 
@@ -291,11 +291,11 @@ No synchronizer chains to report.
 +-------------------------------+--------+---------------+
 ; Clock                         ; Slack  ; End Point TNS ;
 +-------------------------------+--------+---------------+
-; sensor:sensor1|divf:clkS|clkl ; -0.127 ; -0.127        ;
-; sensor:sensor1|divf:u1|clkl   ; 0.016  ; 0.000         ;
-; clk                           ; 0.146  ; 0.000         ;
-; divf:cl1|clkl                 ; 0.257  ; 0.000         ;
-; echo                          ; 1.041  ; 0.000         ;
+; sensor:sensor1|divf:clkS|clkl ; -0.203 ; -0.203        ;
+; sensor:sensor1|divf:u1|clkl   ; -0.164 ; -2.624        ;
+; clk                           ; 0.148  ; 0.000         ;
+; divf:cl1|clkl                 ; 0.247  ; 0.000         ;
+; echo                          ; 1.170  ; 0.000         ;
 +-------------------------------+--------+---------------+
 
 
@@ -304,8 +304,8 @@ No synchronizer chains to report.
 +-----------------------------+--------+---------------+
 ; Clock                       ; Slack  ; End Point TNS ;
 +-----------------------------+--------+---------------+
-; echo                        ; -0.433 ; -1.189        ;
-; sensor:sensor1|divf:u1|clkl ; -0.348 ; -5.451        ;
+; echo                        ; -0.334 ; -0.566        ;
+; sensor:sensor1|divf:u1|clkl ; -0.117 ; -1.872        ;
 +-----------------------------+--------+---------------+
 
 
@@ -314,8 +314,8 @@ No synchronizer chains to report.
 +-----------------------------+-------+---------------+
 ; Clock                       ; Slack ; End Point TNS ;
 +-----------------------------+-------+---------------+
-; echo                        ; 0.523 ; 0.000         ;
-; sensor:sensor1|divf:u1|clkl ; 1.022 ; 0.000         ;
+; echo                        ; 0.532 ; 0.000         ;
+; sensor:sensor1|divf:u1|clkl ; 0.825 ; 0.000         ;
 +-----------------------------+-------+---------------+
 
 
@@ -324,9 +324,9 @@ No synchronizer chains to report.
 +-------------------------------+--------+---------------+
 ; Clock                         ; Slack  ; End Point TNS ;
 +-------------------------------+--------+---------------+
-; clk                           ; -3.000 ; -55.562       ;
-; echo                          ; -3.000 ; -16.922       ;
-; sensor:sensor1|divf:clkS|clkl ; -1.000 ; -178.000      ;
+; clk                           ; -3.000 ; -48.521       ;
+; echo                          ; -3.000 ; -17.325       ;
+; sensor:sensor1|divf:clkS|clkl ; -1.000 ; -100.000      ;
 ; sensor:sensor1|divf:u1|clkl   ; -1.000 ; -16.000       ;
 ; divf:cl1|clkl                 ; -1.000 ; -11.000       ;
 +-------------------------------+--------+---------------+
@@ -343,18 +343,18 @@ No synchronizer chains to report.
 +--------------------------------+-----------+--------+----------+---------+---------------------+
 ; Clock                          ; Setup     ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------------+-----------+--------+----------+---------+---------------------+
-; Worst-case Slack               ; -128.863  ; -0.127 ; -1.951   ; 0.523   ; -3.000              ;
-;  clk                           ; -3.941    ; 0.146  ; N/A      ; N/A     ; -3.000              ;
-;  divf:cl1|clkl                 ; -1.883    ; 0.257  ; N/A      ; N/A     ; -1.403              ;
-;  echo                          ; -38.826   ; 1.041  ; -1.740   ; 0.523   ; -3.000              ;
-;  sensor:sensor1|divf:clkS|clkl ; -128.863  ; -0.127 ; N/A      ; N/A     ; -1.403              ;
-;  sensor:sensor1|divf:u1|clkl   ; -2.424    ; 0.016  ; -1.951   ; 1.022   ; -1.403              ;
-; Design-wide TNS                ; -5448.201 ; -0.127 ; -43.701  ; 0.0     ; -382.004            ;
-;  clk                           ; -89.985   ; 0.000  ; N/A      ; N/A     ; -74.553             ;
-;  divf:cl1|clkl                 ; -16.555   ; 0.000  ; N/A      ; N/A     ; -15.433             ;
-;  echo                          ; -273.768  ; 0.000  ; -12.745  ; 0.000   ; -19.836             ;
-;  sensor:sensor1|divf:clkS|clkl ; -5045.838 ; -0.127 ; N/A      ; N/A     ; -249.734            ;
-;  sensor:sensor1|divf:u1|clkl   ; -22.055   ; 0.000  ; -30.956  ; 0.000   ; -22.448             ;
+; Worst-case Slack               ; -144.643  ; -0.203 ; -1.689   ; 0.532   ; -3.000              ;
+;  clk                           ; -4.035    ; 0.148  ; N/A      ; N/A     ; -3.000              ;
+;  divf:cl1|clkl                 ; -2.388    ; 0.247  ; N/A      ; N/A     ; -1.403              ;
+;  echo                          ; -40.561   ; 1.170  ; -1.689   ; 0.532   ; -3.000              ;
+;  sensor:sensor1|divf:clkS|clkl ; -144.643  ; -0.203 ; N/A      ; N/A     ; -1.403              ;
+;  sensor:sensor1|divf:u1|clkl   ; -1.639    ; -0.164 ; -1.532   ; 0.825   ; -1.403              ;
+; Design-wide TNS                ; -5114.857 ; -2.827 ; -37.498  ; 0.0     ; -262.749            ;
+;  clk                           ; -86.738   ; 0.000  ; N/A      ; N/A     ; -64.732             ;
+;  divf:cl1|clkl                 ; -19.376   ; 0.000  ; N/A      ; N/A     ; -15.433             ;
+;  echo                          ; -278.389  ; 0.000  ; -12.986  ; 0.000   ; -19.836             ;
+;  sensor:sensor1|divf:clkS|clkl ; -4711.498 ; -0.203 ; N/A      ; N/A     ; -140.300            ;
+;  sensor:sensor1|divf:u1|clkl   ; -18.856   ; -2.624 ; -24.512  ; 0.000   ; -22.448             ;
 +--------------------------------+-----------+--------+----------+---------+---------------------+
 
 
@@ -594,14 +594,14 @@ No synchronizer chains to report.
 +-------------------------------+-------------------------------+--------------+----------+--------------+----------+
 ; From Clock                    ; To Clock                      ; RR Paths     ; FR Paths ; RF Paths     ; FF Paths ;
 +-------------------------------+-------------------------------+--------------+----------+--------------+----------+
-; clk                           ; clk                           ; 959          ; 0        ; 0            ; 0        ;
+; clk                           ; clk                           ; 819          ; 0        ; 0            ; 0        ;
 ; divf:cl1|clkl                 ; clk                           ; 1            ; 1        ; 0            ; 0        ;
 ; sensor:sensor1|divf:clkS|clkl ; clk                           ; 1            ; 1        ; 0            ; 0        ;
 ; sensor:sensor1|divf:u1|clkl   ; clk                           ; 1            ; 1        ; 0            ; 0        ;
 ; divf:cl1|clkl                 ; divf:cl1|clkl                 ; 135          ; 0        ; 0            ; 0        ;
 ; sensor:sensor1|divf:clkS|clkl ; divf:cl1|clkl                 ; 32           ; 0        ; 0            ; 0        ;
 ; sensor:sensor1|divf:u1|clkl   ; echo                          ; 0            ; 0        ; > 2147483647 ; 0        ;
-; echo                          ; sensor:sensor1|divf:clkS|clkl ; 46           ; 70       ; 0            ; 0        ;
+; echo                          ; sensor:sensor1|divf:clkS|clkl ; 45           ; 69       ; 0            ; 0        ;
 ; sensor:sensor1|divf:clkS|clkl ; sensor:sensor1|divf:clkS|clkl ; > 2147483647 ; 0        ; 0            ; 0        ;
 ; echo                          ; sensor:sensor1|divf:u1|clkl   ; 16           ; 16       ; 0            ; 0        ;
 ; sensor:sensor1|divf:u1|clkl   ; sensor:sensor1|divf:u1|clkl   ; 136          ; 0        ; 0            ; 0        ;
@@ -614,14 +614,14 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------------+-------------------------------+--------------+----------+--------------+----------+
 ; From Clock                    ; To Clock                      ; RR Paths     ; FR Paths ; RF Paths     ; FF Paths ;
 +-------------------------------+-------------------------------+--------------+----------+--------------+----------+
-; clk                           ; clk                           ; 959          ; 0        ; 0            ; 0        ;
+; clk                           ; clk                           ; 819          ; 0        ; 0            ; 0        ;
 ; divf:cl1|clkl                 ; clk                           ; 1            ; 1        ; 0            ; 0        ;
 ; sensor:sensor1|divf:clkS|clkl ; clk                           ; 1            ; 1        ; 0            ; 0        ;
 ; sensor:sensor1|divf:u1|clkl   ; clk                           ; 1            ; 1        ; 0            ; 0        ;
 ; divf:cl1|clkl                 ; divf:cl1|clkl                 ; 135          ; 0        ; 0            ; 0        ;
 ; sensor:sensor1|divf:clkS|clkl ; divf:cl1|clkl                 ; 32           ; 0        ; 0            ; 0        ;
 ; sensor:sensor1|divf:u1|clkl   ; echo                          ; 0            ; 0        ; > 2147483647 ; 0        ;
-; echo                          ; sensor:sensor1|divf:clkS|clkl ; 46           ; 70       ; 0            ; 0        ;
+; echo                          ; sensor:sensor1|divf:clkS|clkl ; 45           ; 69       ; 0            ; 0        ;
 ; sensor:sensor1|divf:clkS|clkl ; sensor:sensor1|divf:clkS|clkl ; > 2147483647 ; 0        ; 0            ; 0        ;
 ; echo                          ; sensor:sensor1|divf:u1|clkl   ; 16           ; 16       ; 0            ; 0        ;
 ; sensor:sensor1|divf:u1|clkl   ; sensor:sensor1|divf:u1|clkl   ; 136          ; 0        ; 0            ; 0        ;
@@ -671,7 +671,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 3     ; 3    ;
-; Unconstrained Input Port Paths  ; 212   ; 212  ;
+; Unconstrained Input Port Paths  ; 134   ; 134  ;
 ; Unconstrained Output Ports      ; 44    ; 44   ;
 ; Unconstrained Output Port Paths ; 550   ; 550  ;
 +---------------------------------+-------+------+
@@ -822,7 +822,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun May 12 03:18:35 2024
+    Info: Processing started: Sun May 12 10:18:13 2024
 Info: Command: quartus_sta robotDetector -c robotDetector
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -844,38 +844,38 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -128.863
+Info (332146): Worst-case setup slack is -144.643
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):  -128.863           -5045.838 sensor:sensor1|divf:clkS|clkl 
-    Info (332119):   -38.826            -273.768 echo 
-    Info (332119):    -3.941             -89.985 clk 
-    Info (332119):    -2.424             -22.055 sensor:sensor1|divf:u1|clkl 
-    Info (332119):    -1.883             -16.555 divf:cl1|clkl 
-Info (332146): Worst-case hold slack is 0.266
+    Info (332119):  -144.643           -4711.498 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):   -40.561            -278.389 echo 
+    Info (332119):    -4.035             -86.738 clk 
+    Info (332119):    -2.388             -19.376 divf:cl1|clkl 
+    Info (332119):    -1.639             -18.856 sensor:sensor1|divf:u1|clkl 
+Info (332146): Worst-case hold slack is 0.160
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.266               0.000 sensor:sensor1|divf:clkS|clkl 
-    Info (332119):     0.339               0.000 clk 
-    Info (332119):     0.614               0.000 sensor:sensor1|divf:u1|clkl 
-    Info (332119):     0.659               0.000 divf:cl1|clkl 
-    Info (332119):     2.557               0.000 echo 
-Info (332146): Worst-case recovery slack is -1.951
+    Info (332119):     0.160               0.000 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):     0.194               0.000 sensor:sensor1|divf:u1|clkl 
+    Info (332119):     0.341               0.000 clk 
+    Info (332119):     0.639               0.000 divf:cl1|clkl 
+    Info (332119):     2.762               0.000 echo 
+Info (332146): Worst-case recovery slack is -1.689
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.951             -30.956 sensor:sensor1|divf:u1|clkl 
-    Info (332119):    -1.740             -12.745 echo 
-Info (332146): Worst-case removal slack is 1.009
+    Info (332119):    -1.689             -12.986 echo 
+    Info (332119):    -1.532             -24.512 sensor:sensor1|divf:u1|clkl 
+Info (332146): Worst-case removal slack is 1.138
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.009               0.000 echo 
-    Info (332119):     2.277               0.000 sensor:sensor1|divf:u1|clkl 
+    Info (332119):     1.138               0.000 echo 
+    Info (332119):     1.869               0.000 sensor:sensor1|divf:u1|clkl 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -74.553 clk 
+    Info (332119):    -3.000             -64.732 clk 
     Info (332119):    -3.000             -19.836 echo 
-    Info (332119):    -1.403            -249.734 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):    -1.403            -140.300 sensor:sensor1|divf:clkS|clkl 
     Info (332119):    -1.403             -22.448 sensor:sensor1|divf:u1|clkl 
     Info (332119):    -1.403             -15.433 divf:cl1|clkl 
 Info: Analyzing Slow 1200mV 0C Model
@@ -883,82 +883,82 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -116.890
+Info (332146): Worst-case setup slack is -131.062
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):  -116.890           -4584.206 sensor:sensor1|divf:clkS|clkl 
-    Info (332119):   -35.222            -248.058 echo 
-    Info (332119):    -3.582             -77.832 clk 
-    Info (332119):    -2.119             -19.039 sensor:sensor1|divf:u1|clkl 
-    Info (332119):    -1.606             -13.949 divf:cl1|clkl 
-Info (332146): Worst-case hold slack is 0.305
+    Info (332119):  -131.062           -4268.441 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):   -36.850            -252.774 echo 
+    Info (332119):    -3.673             -75.691 clk 
+    Info (332119):    -2.120             -16.530 divf:cl1|clkl 
+    Info (332119):    -1.380             -15.654 sensor:sensor1|divf:u1|clkl 
+Info (332146): Worst-case hold slack is 0.262
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.305               0.000 clk 
-    Info (332119):     0.307               0.000 sensor:sensor1|divf:clkS|clkl 
-    Info (332119):     0.594               0.000 sensor:sensor1|divf:u1|clkl 
-    Info (332119):     0.609               0.000 divf:cl1|clkl 
-    Info (332119):     2.351               0.000 echo 
-Info (332146): Worst-case recovery slack is -1.734
+    Info (332119):     0.262               0.000 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):     0.302               0.000 sensor:sensor1|divf:u1|clkl 
+    Info (332119):     0.306               0.000 clk 
+    Info (332119):     0.592               0.000 divf:cl1|clkl 
+    Info (332119):     2.536               0.000 echo 
+Info (332146): Worst-case recovery slack is -1.497
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.734             -27.484 sensor:sensor1|divf:u1|clkl 
-    Info (332119):    -1.524             -10.538 echo 
-Info (332146): Worst-case removal slack is 0.915
+    Info (332119):    -1.497             -11.085 echo 
+    Info (332119):    -1.341             -21.456 sensor:sensor1|divf:u1|clkl 
+Info (332146): Worst-case removal slack is 1.057
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.915               0.000 echo 
-    Info (332119):     2.063               0.000 sensor:sensor1|divf:u1|clkl 
+    Info (332119):     1.057               0.000 echo 
+    Info (332119):     1.689               0.000 sensor:sensor1|divf:u1|clkl 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -74.553 clk 
+    Info (332119):    -3.000             -64.732 clk 
     Info (332119):    -3.000             -19.836 echo 
-    Info (332119):    -1.403            -249.734 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):    -1.403            -140.300 sensor:sensor1|divf:clkS|clkl 
     Info (332119):    -1.403             -22.448 sensor:sensor1|divf:u1|clkl 
     Info (332119):    -1.403             -15.433 divf:cl1|clkl 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -52.537
+Info (332146): Worst-case setup slack is -59.622
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -52.537           -2030.812 sensor:sensor1|divf:clkS|clkl 
-    Info (332119):   -15.335            -106.439 echo 
-    Info (332119):    -1.235             -12.944 clk 
-    Info (332119):    -0.383              -4.285 sensor:sensor1|divf:u1|clkl 
-    Info (332119):    -0.221              -1.286 divf:cl1|clkl 
-Info (332146): Worst-case hold slack is -0.127
+    Info (332119):   -59.622           -1924.247 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):   -16.261            -108.525 echo 
+    Info (332119):    -1.333             -13.267 clk 
+    Info (332119):    -0.402              -2.181 divf:cl1|clkl 
+    Info (332119):    -0.046              -0.736 sensor:sensor1|divf:u1|clkl 
+Info (332146): Worst-case hold slack is -0.203
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.127              -0.127 sensor:sensor1|divf:clkS|clkl 
-    Info (332119):     0.016               0.000 sensor:sensor1|divf:u1|clkl 
-    Info (332119):     0.146               0.000 clk 
-    Info (332119):     0.257               0.000 divf:cl1|clkl 
-    Info (332119):     1.041               0.000 echo 
-Info (332146): Worst-case recovery slack is -0.433
+    Info (332119):    -0.203              -0.203 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):    -0.164              -2.624 sensor:sensor1|divf:u1|clkl 
+    Info (332119):     0.148               0.000 clk 
+    Info (332119):     0.247               0.000 divf:cl1|clkl 
+    Info (332119):     1.170               0.000 echo 
+Info (332146): Worst-case recovery slack is -0.334
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.433              -1.189 echo 
-    Info (332119):    -0.348              -5.451 sensor:sensor1|divf:u1|clkl 
-Info (332146): Worst-case removal slack is 0.523
+    Info (332119):    -0.334              -0.566 echo 
+    Info (332119):    -0.117              -1.872 sensor:sensor1|divf:u1|clkl 
+Info (332146): Worst-case removal slack is 0.532
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.523               0.000 echo 
-    Info (332119):     1.022               0.000 sensor:sensor1|divf:u1|clkl 
+    Info (332119):     0.532               0.000 echo 
+    Info (332119):     0.825               0.000 sensor:sensor1|divf:u1|clkl 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -55.562 clk 
-    Info (332119):    -3.000             -16.922 echo 
-    Info (332119):    -1.000            -178.000 sensor:sensor1|divf:clkS|clkl 
+    Info (332119):    -3.000             -48.521 clk 
+    Info (332119):    -3.000             -17.325 echo 
+    Info (332119):    -1.000            -100.000 sensor:sensor1|divf:clkS|clkl 
     Info (332119):    -1.000             -16.000 sensor:sensor1|divf:u1|clkl 
     Info (332119):    -1.000             -11.000 divf:cl1|clkl 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5045 megabytes
-    Info: Processing ended: Sun May 12 03:18:37 2024
+    Info: Peak virtual memory: 5036 megabytes
+    Info: Processing ended: Sun May 12 10:18:15 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:09
 

@@ -11,45 +11,46 @@ end entity;
 architecture bhv of calcDuty is
 
 	signal velocidad, distMaxHalf, pendiente: integer;
+
 	
 begin
+
+	duty <= velocidad;
+	distMaxHalf <= distMax/2;
+	pendiente <= 1000 / (distMax - distMaxHalf);
+
 process(clk)
 begin
 	if (rst = '1') then
-		duty <= 0;
-		distMaxHalf <= 0;
-		pendiente <= 0;
+		--distMaxHalf <= 0;
+		--pendiente <= 0;
+		velocidad <= 0;
 		done <= '0';
 	else
+	
 	if(rising_edge(clk)) then
-		distMaxHalf <= distMax/2;
-		pendiente <= 1000 / (distMax - distMaxHalf);
-		
+			
 		if (en = '1') then
 		
-			if (distMax < disAct) then
+			if (disAct > distMax) then
 			
-				duty <= 0;
 				velocidad <= 0;
 				done <= '1';
 				
 			else
 					
 				if (disAct >= distMaxHalf) then
-					velocidad <= pendiente * (distMax - disAct);
+					velocidad <= (pendiente * (distMax - disAct));
 				else
-					velocidad <= (pendiente * (distMaxHalf + disAct)) - 1000;
+					velocidad <= ((pendiente * (distMaxHalf + disAct)) - 1000);
 				end if;
-					
-				duty <= velocidad;
 				done <= '1';
 			end if;
 			
 		else
-			duty <= 0;
-			distMaxHalf <= 0;
+			--distMaxHalf <= 0;
 			velocidad <= 0;
-			pendiente <= 0;
+			--pendiente <= 0;
 			done <= '0';
 		end if;
 	end if;

@@ -148,6 +148,7 @@ begin
 					distanciaMax <= distanciaMax;
 					en_duty <= '0';
 					dty <= dty;
+					
 					if(echo = '0') then
 						distanciaActual <= distancia;
 						nextState <= s5;
@@ -163,6 +164,8 @@ begin
 					distanciaMax <= distanciaMax;
 					distanciaActual <= distanciaActual;
 					en_duty <= '1';
+					--dty <= dtyCalc;
+					--nextState <= s3;
 					
 					if(done = '1') then
 						dty <= dtyCalc;

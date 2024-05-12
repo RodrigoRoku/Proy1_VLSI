@@ -3,64 +3,64 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'sensor:sensor1|divf:clkS|clkl'
-Slack : -128.863
-TNS   : -5045.838
+Slack : -144.643
+TNS   : -4711.498
 
 Type  : Slow 1200mV 85C Model Setup 'echo'
-Slack : -38.826
-TNS   : -273.768
+Slack : -40.561
+TNS   : -278.389
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -3.941
-TNS   : -89.985
-
-Type  : Slow 1200mV 85C Model Setup 'sensor:sensor1|divf:u1|clkl'
-Slack : -2.424
-TNS   : -22.055
+Slack : -4.035
+TNS   : -86.738
 
 Type  : Slow 1200mV 85C Model Setup 'divf:cl1|clkl'
-Slack : -1.883
-TNS   : -16.555
+Slack : -2.388
+TNS   : -19.376
+
+Type  : Slow 1200mV 85C Model Setup 'sensor:sensor1|divf:u1|clkl'
+Slack : -1.639
+TNS   : -18.856
 
 Type  : Slow 1200mV 85C Model Hold 'sensor:sensor1|divf:clkS|clkl'
-Slack : 0.266
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.339
+Slack : 0.160
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'sensor:sensor1|divf:u1|clkl'
-Slack : 0.614
+Slack : 0.194
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.341
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'divf:cl1|clkl'
-Slack : 0.659
+Slack : 0.639
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'echo'
-Slack : 2.557
+Slack : 2.762
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'sensor:sensor1|divf:u1|clkl'
-Slack : -1.951
-TNS   : -30.956
-
 Type  : Slow 1200mV 85C Model Recovery 'echo'
-Slack : -1.740
-TNS   : -12.745
+Slack : -1.689
+TNS   : -12.986
+
+Type  : Slow 1200mV 85C Model Recovery 'sensor:sensor1|divf:u1|clkl'
+Slack : -1.532
+TNS   : -24.512
 
 Type  : Slow 1200mV 85C Model Removal 'echo'
-Slack : 1.009
+Slack : 1.138
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'sensor:sensor1|divf:u1|clkl'
-Slack : 2.277
+Slack : 1.869
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -74.553
+TNS   : -64.732
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'echo'
 Slack : -3.000
@@ -68,7 +68,7 @@ TNS   : -19.836
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sensor:sensor1|divf:clkS|clkl'
 Slack : -1.403
-TNS   : -249.734
+TNS   : -140.300
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sensor:sensor1|divf:u1|clkl'
 Slack : -1.403
@@ -79,64 +79,64 @@ Slack : -1.403
 TNS   : -15.433
 
 Type  : Slow 1200mV 0C Model Setup 'sensor:sensor1|divf:clkS|clkl'
-Slack : -116.890
-TNS   : -4584.206
+Slack : -131.062
+TNS   : -4268.441
 
 Type  : Slow 1200mV 0C Model Setup 'echo'
-Slack : -35.222
-TNS   : -248.058
+Slack : -36.850
+TNS   : -252.774
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -3.582
-TNS   : -77.832
-
-Type  : Slow 1200mV 0C Model Setup 'sensor:sensor1|divf:u1|clkl'
-Slack : -2.119
-TNS   : -19.039
+Slack : -3.673
+TNS   : -75.691
 
 Type  : Slow 1200mV 0C Model Setup 'divf:cl1|clkl'
-Slack : -1.606
-TNS   : -13.949
+Slack : -2.120
+TNS   : -16.530
 
-Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.305
-TNS   : 0.000
+Type  : Slow 1200mV 0C Model Setup 'sensor:sensor1|divf:u1|clkl'
+Slack : -1.380
+TNS   : -15.654
 
 Type  : Slow 1200mV 0C Model Hold 'sensor:sensor1|divf:clkS|clkl'
-Slack : 0.307
+Slack : 0.262
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'sensor:sensor1|divf:u1|clkl'
-Slack : 0.594
+Slack : 0.302
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.306
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'divf:cl1|clkl'
-Slack : 0.609
+Slack : 0.592
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'echo'
-Slack : 2.351
+Slack : 2.536
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Recovery 'sensor:sensor1|divf:u1|clkl'
-Slack : -1.734
-TNS   : -27.484
-
 Type  : Slow 1200mV 0C Model Recovery 'echo'
-Slack : -1.524
-TNS   : -10.538
+Slack : -1.497
+TNS   : -11.085
+
+Type  : Slow 1200mV 0C Model Recovery 'sensor:sensor1|divf:u1|clkl'
+Slack : -1.341
+TNS   : -21.456
 
 Type  : Slow 1200mV 0C Model Removal 'echo'
-Slack : 0.915
+Slack : 1.057
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'sensor:sensor1|divf:u1|clkl'
-Slack : 2.063
+Slack : 1.689
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -74.553
+TNS   : -64.732
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'echo'
 Slack : -3.000
@@ -144,7 +144,7 @@ TNS   : -19.836
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sensor:sensor1|divf:clkS|clkl'
 Slack : -1.403
-TNS   : -249.734
+TNS   : -140.300
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sensor:sensor1|divf:u1|clkl'
 Slack : -1.403
@@ -155,72 +155,72 @@ Slack : -1.403
 TNS   : -15.433
 
 Type  : Fast 1200mV 0C Model Setup 'sensor:sensor1|divf:clkS|clkl'
-Slack : -52.537
-TNS   : -2030.812
+Slack : -59.622
+TNS   : -1924.247
 
 Type  : Fast 1200mV 0C Model Setup 'echo'
-Slack : -15.335
-TNS   : -106.439
+Slack : -16.261
+TNS   : -108.525
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.235
-TNS   : -12.944
-
-Type  : Fast 1200mV 0C Model Setup 'sensor:sensor1|divf:u1|clkl'
-Slack : -0.383
-TNS   : -4.285
+Slack : -1.333
+TNS   : -13.267
 
 Type  : Fast 1200mV 0C Model Setup 'divf:cl1|clkl'
-Slack : -0.221
-TNS   : -1.286
+Slack : -0.402
+TNS   : -2.181
+
+Type  : Fast 1200mV 0C Model Setup 'sensor:sensor1|divf:u1|clkl'
+Slack : -0.046
+TNS   : -0.736
 
 Type  : Fast 1200mV 0C Model Hold 'sensor:sensor1|divf:clkS|clkl'
-Slack : -0.127
-TNS   : -0.127
+Slack : -0.203
+TNS   : -0.203
 
 Type  : Fast 1200mV 0C Model Hold 'sensor:sensor1|divf:u1|clkl'
-Slack : 0.016
-TNS   : 0.000
+Slack : -0.164
+TNS   : -2.624
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.146
+Slack : 0.148
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'divf:cl1|clkl'
-Slack : 0.257
+Slack : 0.247
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'echo'
-Slack : 1.041
+Slack : 1.170
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'echo'
-Slack : -0.433
-TNS   : -1.189
+Slack : -0.334
+TNS   : -0.566
 
 Type  : Fast 1200mV 0C Model Recovery 'sensor:sensor1|divf:u1|clkl'
-Slack : -0.348
-TNS   : -5.451
+Slack : -0.117
+TNS   : -1.872
 
 Type  : Fast 1200mV 0C Model Removal 'echo'
-Slack : 0.523
+Slack : 0.532
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'sensor:sensor1|divf:u1|clkl'
-Slack : 1.022
+Slack : 0.825
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -55.562
+TNS   : -48.521
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'echo'
 Slack : -3.000
-TNS   : -16.922
+TNS   : -17.325
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sensor:sensor1|divf:clkS|clkl'
 Slack : -1.000
-TNS   : -178.000
+TNS   : -100.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sensor:sensor1|divf:u1|clkl'
 Slack : -1.000

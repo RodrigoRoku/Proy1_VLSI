@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sun May 12 03:18:31 2024
+Fitter Status : Successful - Sun May 12 10:18:09 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : robotDetector
 Top-level Entity Name : controladorMotor
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 11,352 / 49,760 ( 23 % )
-    Total combinational functions : 11,347 / 49,760 ( 23 % )
-    Dedicated logic registers : 268 / 49,760 ( < 1 % )
-Total registers : 268
+Total logic elements : 11,313 / 49,760 ( 23 % )
+    Total combinational functions : 11,310 / 49,760 ( 23 % )
+    Dedicated logic registers : 183 / 49,760 ( < 1 % )
+Total registers : 183
 Total pins : 48 / 360 ( 13 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
