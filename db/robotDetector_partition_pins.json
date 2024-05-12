@@ -92,11 +92,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "start",
+					"name" : "echo",
 					"strict" : false
 				},
 				{
-					"name" : "echo",
+					"name" : "rst",
 					"strict" : false
 				},
 				{
@@ -104,7 +104,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "rst",
+					"name" : "start",
 					"strict" : false
 				}
 			]

@@ -27,8 +27,10 @@ begin
 					
 											
 				end if;
-					
+
 			end if;
+		else
+			conteo <= 0;
 		end if;
 			
 		end process;
