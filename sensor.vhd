@@ -6,14 +6,14 @@ entity sensor is
 	port(	clk,rst,echo: 	in std_logic;
 			start:	in std_logic;
 			trig: 			out std_logic;
-			disp0, disp1, disp2: 	out std_logic_vector(6 downto 0)
-			--disp3, disp4, disp5: 	out std_logic_vector(6 downto 0)
+			disp0, disp1, disp2: 	out std_logic_vector(6 downto 0);
+			disp3, disp4, disp5: 	out std_logic_vector(6 downto 0)
 			);
 end entity;
 
 architecture bhv of sensor is
 	
-	type 	 maquinaEstados is (s0,s1,s2);
+	type 	 maquinaEstados is (s0,s1,s2,s3,s4);
 	signal nextState: maquinaEstados;
 	--signal state, nextState: maquinaEstados;
 	signal clkState: std_logic;
@@ -49,24 +49,29 @@ begin
 	display1: entity work.ss7(bhv) port map(hex1, disp1);
 	display2: entity work.ss7(bhv) port map(hex2, disp2);
 	
-	--display3: entity work.ss7(bhv) port map(hex3, disp3);
-	--display4: entity work.ss7(bhv) port map(hex4, disp4);
-	--display5: entity work.ss7(bhv) port map(hex5, disp5);
+	display3: entity work.ss7(bhv) port map(hex3, disp3);
+	display4: entity work.ss7(bhv) port map(hex4, disp4);
+	display5: entity work.ss7(bhv) port map(hex5, disp5);
 	
 	
 	hex0 <= distanciaMax mod 10;
 	hex1 <= (distanciaMax mod 100) / 10;
 	hex2 <= distanciaMax / 100;
 	
-	
+	hex3 <= distanciaActual mod 10;
+	hex4 <= (distanciaActual mod 100) / 10;
+	hex5 <= distanciaActual / 100;
 	
 	process(clkState)
 	begin
 	
 		if(rst = '1') then
 		
-			--state <= s0;
 			nextState <= s0;
+			en_distance <= '0';
+			en_trigger <= '0';
+			distanciaMax <= 0;
+			distanciaActual <= 0;
 			
 		else
 		
@@ -78,14 +83,17 @@ begin
 					en_distance <= '0';
 					en_trigger <= '0';
 					distanciaMax <= 0;
+					distanciaActual <= 0;
 					if(start = '1') then
 						nextState <= s1;
 					end if;
 				
+				--Comienza medicion de distancia Maxima, solo se pasa por estos estados 1 vez!
 				when s1 => 
 					en_trigger 	<= '1';
 					en_distance <= '0';
-					distanciaMax <= distanciaMax;
+					distanciaMax <= 0;
+					distanciaActual <= 0;
 					if(echo = '1') then
 						nextState <= s2;
 					end if;
@@ -93,11 +101,33 @@ begin
 				when s2 =>
 					en_trigger 	<= '1';
 					en_distance <= '1';
+					distanciaActual <= 0;
 					if(echo = '0') then
 						distanciaMax <= distancia;
-						nextState <= s1;
+						nextState <= s3;
 					else 
-						distanciaMax <= distanciaMax;
+						distanciaMax <= 0;
+					end if;
+					
+				--Comienza ciclo de medicion de distancia actual
+				when s3 =>
+					en_trigger 	<= '1';
+					en_distance <= '0';
+					distanciaMax <= distanciaMax;
+					distanciaActual <= distanciaActual;
+					if(echo = '1') then
+						nextState <= s4;
+					end if;
+					
+				when s4 =>
+					en_trigger 	<= '1';
+					en_distance <= '1';
+					distanciaMax <= distanciaMax;
+					if(echo = '0') then
+						distanciaActual <= distancia;
+						nextState <= s3;
+					else 
+						distanciaActual <= distanciaActual;
 					end if;
 					
 				end case;

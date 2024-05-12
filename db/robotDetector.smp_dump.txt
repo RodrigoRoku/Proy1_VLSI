@@ -1,6 +1,8 @@
 
 State Machine - |sensor|nextState
-Name nextState.s2 nextState.s1 nextState.s0 
-nextState.s0 0 0 0 
-nextState.s1 0 1 1 
-nextState.s2 1 0 1 
+Name nextState.s4 nextState.s3 nextState.s2 nextState.s1 nextState.s0 
+nextState.s0 0 0 0 0 0 
+nextState.s1 0 0 0 1 1 
+nextState.s2 0 0 1 0 1 
+nextState.s3 0 1 0 0 1 
+nextState.s4 1 0 0 0 1 

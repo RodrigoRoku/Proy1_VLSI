@@ -1,5 +1,5 @@
 Analysis & Synthesis report for robotDetector
-Sun May 12 00:47:00 2024
+Sun May 12 01:11:48 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -17,18 +17,21 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: divf:clkS
- 15. Parameter Settings for User Entity Instance: divf:u1
- 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 20. Parameter Settings for Inferred Entity Instance: calcDistance:u4|lpm_divide:Div0
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: divf:clkS
+ 14. Parameter Settings for User Entity Instance: divf:u1
+ 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
+ 23. Parameter Settings for Inferred Entity Instance: calcDistance:u4|lpm_divide:Div0
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
 
 
 
@@ -55,16 +58,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 12 00:47:00 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun May 12 01:11:48 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; robotDetector                                  ;
 ; Top-level Entity Name              ; sensor                                         ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 5,054                                          ;
-;     Total combinational functions  ; 5,051                                          ;
-;     Dedicated logic registers      ; 81                                             ;
-; Total registers                    ; 81                                             ;
-; Total pins                         ; 26                                             ;
+; Total logic elements               ; 9,702                                          ;
+;     Total combinational functions  ; 9,700                                          ;
+;     Dedicated logic registers      ; 96                                             ;
+; Total registers                    ; 96                                             ;
+; Total pins                         ; 47                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -224,30 +227,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 5,054            ;
+; Estimated Total logic elements              ; 9,702            ;
 ;                                             ;                  ;
-; Total combinational functions               ; 5051             ;
+; Total combinational functions               ; 9700             ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 1598             ;
-;     -- 3 input functions                    ; 1479             ;
-;     -- <=2 input functions                  ; 1974             ;
+;     -- 4 input functions                    ; 3116             ;
+;     -- 3 input functions                    ; 2842             ;
+;     -- <=2 input functions                  ; 3742             ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 3393             ;
-;     -- arithmetic mode                      ; 1658             ;
+;     -- normal mode                          ; 6537             ;
+;     -- arithmetic mode                      ; 3163             ;
 ;                                             ;                  ;
-; Total registers                             ; 81               ;
-;     -- Dedicated logic registers            ; 81               ;
+; Total registers                             ; 96               ;
+;     -- Dedicated logic registers            ; 96               ;
 ;     -- I/O registers                        ; 0                ;
 ;                                             ;                  ;
-; I/O pins                                    ; 26               ;
+; I/O pins                                    ; 47               ;
 ;                                             ;                  ;
 ; Embedded Multiplier 9-bit elements          ; 0                ;
 ;                                             ;                  ;
 ; Maximum fan-out node                        ; distanciaMax[31] ;
 ; Maximum fan-out                             ; 276              ;
-; Total fan-out                               ; 14780            ;
-; Average fan-out                             ; 2.85             ;
+; Total fan-out                               ; 28328            ;
+; Average fan-out                             ; 2.86             ;
 +---------------------------------------------+------------------+
 
 
@@ -256,18 +259,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |sensor                                   ; 5051 (125)          ; 81 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 26   ; 0            ; 0          ; |sensor                                                                                                                 ; sensor              ; work         ;
+; |sensor                                   ; 9700 (253)          ; 96 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 47   ; 0            ; 0          ; |sensor                                                                                                                 ; sensor              ; work         ;
 ;    |calcDistance:u4|                      ; 340 (57)            ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4                                                                                                 ; calcDistance        ; work         ;
 ;       |lpm_divide:Div0|                   ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_3vl:auto_generated|  ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated                                                   ; lpm_divide_3vl      ; work         ;
 ;             |sign_div_unsign_5nh:divider| ; 283 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider                       ; sign_div_unsign_5nh ; work         ;
 ;                |alt_u_div_kke:divider|    ; 283 (283)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|calcDistance:u4|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_kke:divider ; alt_u_div_kke       ; work         ;
-;    |clkTrigger:u2|                        ; 53 (53)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|clkTrigger:u2                                                                                                   ; clkTrigger          ; work         ;
+;    |clkTrigger:u2|                        ; 54 (54)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|clkTrigger:u2                                                                                                   ; clkTrigger          ; work         ;
 ;    |divf:clkS|                            ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|divf:clkS                                                                                                       ; divf                ; work         ;
 ;    |divf:u1|                              ; 9 (9)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|divf:u1                                                                                                         ; divf                ; work         ;
-;    |lpm_divide:Div0|                      ; 523 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0                                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_fbo:auto_generated|     ; 523 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated                                                                   ; lpm_divide_fbo      ; work         ;
-;          |abs_divider_kbg:divider|        ; 523 (35)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                           ; abs_divider_kbg     ; work         ;
+;    |lpm_divide:Div0|                      ; 524 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0                                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_fbo:auto_generated|     ; 524 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated                                                                   ; lpm_divide_fbo      ; work         ;
+;          |abs_divider_kbg:divider|        ; 524 (36)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                           ; abs_divider_kbg     ; work         ;
 ;             |alt_u_div_she:divider|       ; 449 (449)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                     ; alt_u_div_she       ; work         ;
 ;             |lpm_abs_8b9:my_abs_num|      ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
 ;    |lpm_divide:Div1|                      ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1                                                                                                 ; lpm_divide          ; work         ;
@@ -275,6 +278,16 @@ https://fpgasoftware.intel.com/eula.
 ;          |abs_divider_nbg:divider|        ; 659 (32)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                           ; abs_divider_nbg     ; work         ;
 ;             |alt_u_div_2ie:divider|       ; 617 (617)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                     ; alt_u_div_2ie       ; work         ;
 ;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div1|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
+;    |lpm_divide:Div2|                      ; 526 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2                                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_fbo:auto_generated|     ; 526 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated                                                                   ; lpm_divide_fbo      ; work         ;
+;          |abs_divider_kbg:divider|        ; 526 (35)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                           ; abs_divider_kbg     ; work         ;
+;             |alt_u_div_she:divider|       ; 449 (449)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                     ; alt_u_div_she       ; work         ;
+;             |lpm_abs_8b9:my_abs_num|      ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div2|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
+;    |lpm_divide:Div3|                      ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3                                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_ibo:auto_generated|     ; 659 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated                                                                   ; lpm_divide_ibo      ; work         ;
+;          |abs_divider_nbg:divider|        ; 659 (32)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider                                           ; abs_divider_nbg     ; work         ;
+;             |alt_u_div_2ie:divider|       ; 617 (617)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|alt_u_div_2ie:divider                     ; alt_u_div_2ie       ; work         ;
+;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Div3|lpm_divide_ibo:auto_generated|abs_divider_nbg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
 ;    |lpm_divide:Mod0|                      ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0                                                                                                 ; lpm_divide          ; work         ;
 ;       |lpm_divide_25o:auto_generated|     ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
 ;          |abs_divider_4dg:divider|        ; 1643 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
@@ -285,24 +298,39 @@ https://fpgasoftware.intel.com/eula.
 ;          |abs_divider_4dg:divider|        ; 1585 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
 ;             |alt_u_div_ske:divider|       ; 1512 (1512)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
 ;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod1|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
+;    |lpm_divide:Mod2|                      ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2                                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_25o:auto_generated|     ; 1643 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
+;          |abs_divider_4dg:divider|        ; 1643 (64)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
+;             |alt_u_div_ske:divider|       ; 1558 (1558)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
+;             |lpm_abs_8b9:my_abs_num|      ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod2|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
+;    |lpm_divide:Mod3|                      ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3                                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_25o:auto_generated|     ; 1585 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated                                                                   ; lpm_divide_25o      ; work         ;
+;          |abs_divider_4dg:divider|        ; 1585 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                                           ; abs_divider_4dg     ; work         ;
+;             |alt_u_div_ske:divider|       ; 1512 (1512)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider                     ; alt_u_div_ske       ; work         ;
+;             |lpm_abs_8b9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|lpm_divide:Mod3|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num                    ; lpm_abs_8b9         ; work         ;
 ;    |senalTrigger:u3|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|senalTrigger:u3                                                                                                 ; senalTrigger        ; work         ;
 ;    |ss7:display0|                         ; 27 (27)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display0                                                                                                    ; ss7                 ; work         ;
-;    |ss7:display1|                         ; 43 (43)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display1                                                                                                    ; ss7                 ; work         ;
+;    |ss7:display1|                         ; 41 (41)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display1                                                                                                    ; ss7                 ; work         ;
 ;    |ss7:display2|                         ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display2                                                                                                    ; ss7                 ; work         ;
+;    |ss7:display3|                         ; 27 (27)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display3                                                                                                    ; ss7                 ; work         ;
+;    |ss7:display4|                         ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display4                                                                                                    ; ss7                 ; work         ;
+;    |ss7:display5|                         ; 39 (39)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sensor|ss7:display5                                                                                                    ; ss7                 ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------+
-; State Machine - |sensor|nextState                         ;
-+--------------+--------------+--------------+--------------+
-; Name         ; nextState.s2 ; nextState.s1 ; nextState.s0 ;
-+--------------+--------------+--------------+--------------+
-; nextState.s0 ; 0            ; 0            ; 0            ;
-; nextState.s1 ; 0            ; 1            ; 1            ;
-; nextState.s2 ; 1            ; 0            ; 1            ;
-+--------------+--------------+--------------+--------------+
++-----------------------------------------------------------------------------------------+
+; State Machine - |sensor|nextState                                                       ;
++--------------+--------------+--------------+--------------+--------------+--------------+
+; Name         ; nextState.s4 ; nextState.s3 ; nextState.s2 ; nextState.s1 ; nextState.s0 ;
++--------------+--------------+--------------+--------------+--------------+--------------+
+; nextState.s0 ; 0            ; 0            ; 0            ; 0            ; 0            ;
+; nextState.s1 ; 0            ; 0            ; 0            ; 1            ; 1            ;
+; nextState.s2 ; 0            ; 0            ; 1            ; 0            ; 1            ;
+; nextState.s3 ; 0            ; 1            ; 0            ; 0            ; 1            ;
+; nextState.s4 ; 1            ; 0            ; 0            ; 0            ; 1            ;
++--------------+--------------+--------------+--------------+--------------+--------------+
 
 
 +---------------------------------------------------------------------------------+
@@ -312,12 +340,15 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; calcDistance:u4|distancia[22..30]      ; Stuck at GND due to stuck port data_in ;
 ; distanciaMax[23..30]                   ; Merged with distanciaMax[22]           ;
+; distanciaActual[23..30]                ; Merged with distanciaActual[22]        ;
 ; distanciaMax[22]                       ; Stuck at GND due to stuck port data_in ;
+; distanciaActual[22]                    ; Stuck at GND due to stuck port data_in ;
 ; divf:u1|conteo[0]                      ; Merged with divf:clkS|conteo[0]        ;
 ; calcDistance:u4|distancia[12..21]      ; Stuck at GND due to stuck port data_in ;
 ; distanciaMax[12..21]                   ; Stuck at GND due to stuck port data_in ;
+; distanciaActual[12..21]                ; Stuck at GND due to stuck port data_in ;
 ; calcDistance:u4|distancia[31]          ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 40 ;                                        ;
+; Total Number of Removed Registers = 59 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -326,27 +357,27 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+----------------------------------------+
 ; Register name                 ; Reason for Removal        ; Registers Removed due to This Register ;
 +-------------------------------+---------------------------+----------------------------------------+
-; calcDistance:u4|distancia[22] ; Stuck at GND              ; distanciaMax[22]                       ;
+; calcDistance:u4|distancia[22] ; Stuck at GND              ; distanciaMax[22], distanciaActual[22]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[21] ; Stuck at GND              ; distanciaMax[21]                       ;
+; calcDistance:u4|distancia[21] ; Stuck at GND              ; distanciaMax[21], distanciaActual[21]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[20] ; Stuck at GND              ; distanciaMax[20]                       ;
+; calcDistance:u4|distancia[20] ; Stuck at GND              ; distanciaMax[20], distanciaActual[20]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[19] ; Stuck at GND              ; distanciaMax[19]                       ;
+; calcDistance:u4|distancia[19] ; Stuck at GND              ; distanciaMax[19], distanciaActual[19]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[18] ; Stuck at GND              ; distanciaMax[18]                       ;
+; calcDistance:u4|distancia[18] ; Stuck at GND              ; distanciaMax[18], distanciaActual[18]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[17] ; Stuck at GND              ; distanciaMax[17]                       ;
+; calcDistance:u4|distancia[17] ; Stuck at GND              ; distanciaMax[17], distanciaActual[17]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[16] ; Stuck at GND              ; distanciaMax[16]                       ;
+; calcDistance:u4|distancia[16] ; Stuck at GND              ; distanciaMax[16], distanciaActual[16]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[15] ; Stuck at GND              ; distanciaMax[15]                       ;
+; calcDistance:u4|distancia[15] ; Stuck at GND              ; distanciaMax[15], distanciaActual[15]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[14] ; Stuck at GND              ; distanciaMax[14]                       ;
+; calcDistance:u4|distancia[14] ; Stuck at GND              ; distanciaMax[14], distanciaActual[14]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[13] ; Stuck at GND              ; distanciaMax[13]                       ;
+; calcDistance:u4|distancia[13] ; Stuck at GND              ; distanciaMax[13], distanciaActual[13]  ;
 ;                               ; due to stuck port data_in ;                                        ;
-; calcDistance:u4|distancia[12] ; Stuck at GND              ; distanciaMax[12]                       ;
+; calcDistance:u4|distancia[12] ; Stuck at GND              ; distanciaMax[12], distanciaActual[12]  ;
 ;                               ; due to stuck port data_in ;                                        ;
 +-------------------------------+---------------------------+----------------------------------------+
 
@@ -356,25 +387,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 81    ;
+; Total registers                              ; 96    ;
 ; Number of registers using Synchronous Clear  ; 16    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 31    ;
+; Number of registers using Asynchronous Clear ; 61    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 17    ;
+; Number of registers using Clock Enable       ; 2     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; distanciaMax[31]                       ; 276     ;
-; distanciaMax[0]                        ; 17      ;
-; Total number of inverted registers = 2 ;         ;
-+----------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
@@ -382,7 +402,8 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |sensor|Selector34         ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |sensor|Selector64         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |sensor|Selector66         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -498,6 +519,98 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 5              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ibo ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: calcDistance:u4|lpm_divide:Div0 ;
 +------------------------+----------------+----------------------------------------+
@@ -526,27 +639,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 26                          ;
-; cycloneiii_ff         ; 81                          ;
-;     CLR               ; 13                          ;
+; boundary_port         ; 47                          ;
+; cycloneiii_ff         ; 96                          ;
+;     CLR               ; 43                          ;
 ;     CLR SCLR          ; 16                          ;
-;     ENA               ; 15                          ;
 ;     ENA CLR           ; 2                           ;
 ;     plain             ; 35                          ;
-; cycloneiii_lcell_comb ; 5051                        ;
-;     arith             ; 1658                        ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 220                         ;
-;         3 data inputs ; 1436                        ;
-;     normal            ; 3393                        ;
-;         0 data inputs ; 129                         ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 1613                        ;
-;         3 data inputs ; 43                          ;
-;         4 data inputs ; 1598                        ;
+; cycloneiii_lcell_comb ; 9700                        ;
+;     arith             ; 3163                        ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 388                         ;
+;         3 data inputs ; 2771                        ;
+;     normal            ; 6537                        ;
+;         0 data inputs ; 245                         ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 3093                        ;
+;         3 data inputs ; 71                          ;
+;         4 data inputs ; 3116                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 206.70                      ;
-; Average LUT depth     ; 144.76                      ;
+; Max LUT depth         ; 207.20                      ;
+; Average LUT depth     ; 150.50                      ;
 +-----------------------+-----------------------------+
 
 
@@ -555,7 +667,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -565,7 +677,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun May 12 00:46:52 2024
+    Info: Processing started: Sun May 12 01:11:38 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off robotDetector -c robotDetector
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -588,7 +700,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file calcdis
     Info (12022): Found design unit 1: calcDistance-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 9
     Info (12023): Found entity 1: calcDistance File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 4
 Info (12127): Elaborating entity "sensor" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at sensor.vhd(66): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at sensor.vhd(68): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 68
 Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "divf:clkS" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 36
 Info (12129): Elaborating entity "clkTrigger" using architecture "A:bhv" for hierarchy "clkTrigger:u2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 39
 Info (12129): Elaborating entity "senalTrigger" using architecture "A:bhv" for hierarchy "senalTrigger:u3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 40
@@ -601,11 +713,15 @@ Warning (10492): VHDL Process Statement warning at calcDistance.vhd(14): signal 
 Warning (10492): VHDL Process Statement warning at calcDistance.vhd(40): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 40
 Warning (10492): VHDL Process Statement warning at calcDistance.vhd(41): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 41
 Info (12129): Elaborating entity "ss7" using architecture "A:bhv" for hierarchy "ss7:display0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 48
-Info (278001): Inferred 5 megafunctions from design logic
+Info (278001): Inferred 9 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 57
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 58
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 59
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 61
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 62
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 62
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 63
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "calcDistance:u4|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
 Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 57
 Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 57
@@ -675,8 +791,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_5nh File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/sign_div_unsign_5nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kke.tdf
     Info (12023): Found entity 1: alt_u_div_kke File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/alt_u_div_kke.tdf Line: 27
-Info (13014): Ignored 97 buffer(s)
-    Info (13016): Ignored 97 CARRY_SUM buffer(s)
+Info (13014): Ignored 194 buffer(s)
+    Info (13016): Ignored 194 CARRY_SUM buffer(s)
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
     Warning (13310): Register "calcDistance:u4|distancia[0]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[0]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
     Warning (13310): Register "calcDistance:u4|distancia[1]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[1]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
@@ -688,17 +804,21 @@ Warning (13004): Presettable and clearable registers converted to equivalent cir
     Warning (13310): Register "calcDistance:u4|distancia[9]" is converted into an equivalent circuit using register "calcDistance:u4|distancia[9]~_emulated" and latch "calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register distanciaMax[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
+    Critical Warning (18010): Register distanciaMax[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
+    Critical Warning (18010): Register distanciaActual[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
+    Critical Warning (18010): Register distanciaActual[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 78
     Critical Warning (18010): Register calcDistance:u4|distancia[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5080 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9751 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 22 output pins
-    Info (21061): Implemented 5054 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4958 megabytes
-    Info: Processing ended: Sun May 12 00:47:00 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:07
+    Info (21059): Implemented 43 output pins
+    Info (21061): Implemented 9704 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 4963 megabytes
+    Info: Processing ended: Sun May 12 01:11:48 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:08
 
 
