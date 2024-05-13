@@ -1,69 +1,4 @@
-|controladorMotor
-clk => divf:cl1.clk
-clk => sensor:sensor1.clk
-rst => sensor:sensor1.rst
-echo => sensor:sensor1.echo
-start => sensor:sensor1.start
-trig <= sensor:sensor1.trig
-snlMotor <= senalpwm:pwm1.pwm
-disp0[0] <= sensor:sensor1.disp0[0]
-disp0[1] <= sensor:sensor1.disp0[1]
-disp0[2] <= sensor:sensor1.disp0[2]
-disp0[3] <= sensor:sensor1.disp0[3]
-disp0[4] <= sensor:sensor1.disp0[4]
-disp0[5] <= sensor:sensor1.disp0[5]
-disp0[6] <= sensor:sensor1.disp0[6]
-disp1[0] <= sensor:sensor1.disp1[0]
-disp1[1] <= sensor:sensor1.disp1[1]
-disp1[2] <= sensor:sensor1.disp1[2]
-disp1[3] <= sensor:sensor1.disp1[3]
-disp1[4] <= sensor:sensor1.disp1[4]
-disp1[5] <= sensor:sensor1.disp1[5]
-disp1[6] <= sensor:sensor1.disp1[6]
-disp2[0] <= sensor:sensor1.disp2[0]
-disp2[1] <= sensor:sensor1.disp2[1]
-disp2[2] <= sensor:sensor1.disp2[2]
-disp2[3] <= sensor:sensor1.disp2[3]
-disp2[4] <= sensor:sensor1.disp2[4]
-disp2[5] <= sensor:sensor1.disp2[5]
-disp2[6] <= sensor:sensor1.disp2[6]
-disp3[0] <= sensor:sensor1.disp3[0]
-disp3[1] <= sensor:sensor1.disp3[1]
-disp3[2] <= sensor:sensor1.disp3[2]
-disp3[3] <= sensor:sensor1.disp3[3]
-disp3[4] <= sensor:sensor1.disp3[4]
-disp3[5] <= sensor:sensor1.disp3[5]
-disp3[6] <= sensor:sensor1.disp3[6]
-disp4[0] <= sensor:sensor1.disp4[0]
-disp4[1] <= sensor:sensor1.disp4[1]
-disp4[2] <= sensor:sensor1.disp4[2]
-disp4[3] <= sensor:sensor1.disp4[3]
-disp4[4] <= sensor:sensor1.disp4[4]
-disp4[5] <= sensor:sensor1.disp4[5]
-disp4[6] <= sensor:sensor1.disp4[6]
-disp5[0] <= sensor:sensor1.disp5[0]
-disp5[1] <= sensor:sensor1.disp5[1]
-disp5[2] <= sensor:sensor1.disp5[2]
-disp5[3] <= sensor:sensor1.disp5[3]
-disp5[4] <= sensor:sensor1.disp5[4]
-disp5[5] <= sensor:sensor1.disp5[5]
-disp5[6] <= sensor:sensor1.disp5[6]
-
-
-|controladorMotor|divf:cl1
-clk => clkl~reg0.CLK
-clk => conteo[0].CLK
-clk => conteo[1].CLK
-clk => conteo[2].CLK
-clk => conteo[3].CLK
-clk => conteo[4].CLK
-clk => conteo[5].CLK
-clk => conteo[6].CLK
-clk => conteo[7].CLK
-clkl <= clkl~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|controladorMotor|sensor:sensor1
+|sensor
 clk => divf:clkS.clk
 clk => clktrigger:u2.clk
 clk => divf:u1.clk
@@ -335,7 +270,7 @@ disp5[5] <= ss7:display5.hex[5]
 disp5[6] <= ss7:display5.hex[6]
 
 
-|controladorMotor|sensor:sensor1|divf:clkS
+|sensor|divf:clkS
 clk => clkl~reg0.CLK
 clk => conteo[0].CLK
 clk => conteo[1].CLK
@@ -343,7 +278,7 @@ clk => conteo[2].CLK
 clkl <= clkl~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|clkTrigger:u2
+|sensor|clkTrigger:u2
 clk => conteo[0].CLK
 clk => conteo[1].CLK
 clk => conteo[2].CLK
@@ -373,7 +308,7 @@ clk => snl~reg0.CLK
 snl <= snl~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|senalTrigger:u3
+|sensor|senalTrigger:u3
 clk => salida.DATAA
 en => salida.OUTPUTSELECT
 rst => ~NO_FANOUT~
@@ -381,7 +316,7 @@ echo => salida.OUTPUTSELECT
 salida <= salida.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|divf:u1
+|sensor|divf:u1
 clk => clkl~reg0.CLK
 clk => conteo[0].CLK
 clk => conteo[1].CLK
@@ -391,7 +326,7 @@ clk => conteo[4].CLK
 clkl <= clkl~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|calcDistance:u4
+|sensor|calcDistance:u4
 en => distancia[9].IN0
 en => distancia[31].IN0
 en => distancia[9]~reg0.PRESET
@@ -503,7 +438,7 @@ distancia[30] <= distancia[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 distancia[31] <= distancia[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|ss7:display0
+|sensor|ss7:display0
 numero[0] => Equal0.IN31
 numero[0] => Equal1.IN31
 numero[0] => Equal2.IN30
@@ -833,7 +768,7 @@ hex[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|ss7:display1
+|sensor|ss7:display1
 numero[0] => Equal0.IN31
 numero[0] => Equal1.IN31
 numero[0] => Equal2.IN30
@@ -1163,7 +1098,7 @@ hex[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|ss7:display2
+|sensor|ss7:display2
 numero[0] => Equal0.IN31
 numero[0] => Equal1.IN31
 numero[0] => Equal2.IN30
@@ -1493,7 +1428,7 @@ hex[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|ss7:display3
+|sensor|ss7:display3
 numero[0] => Equal0.IN31
 numero[0] => Equal1.IN31
 numero[0] => Equal2.IN30
@@ -1823,7 +1758,7 @@ hex[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|ss7:display4
+|sensor|ss7:display4
 numero[0] => Equal0.IN31
 numero[0] => Equal1.IN31
 numero[0] => Equal2.IN30
@@ -2153,7 +2088,7 @@ hex[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|ss7:display5
+|sensor|ss7:display5
 numero[0] => Equal0.IN31
 numero[0] => Equal1.IN31
 numero[0] => Equal2.IN30
@@ -2483,7 +2418,7 @@ hex[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|controladorMotor|sensor:sensor1|calcDuty:vel
+|sensor|calcDuty:vel
 clk => done~reg0.CLK
 clk => velocidad[0].CLK
 clk => velocidad[1].CLK
@@ -2874,52 +2809,5 @@ duty[28] <= velocidad[28].DB_MAX_OUTPUT_PORT_TYPE
 duty[29] <= velocidad[29].DB_MAX_OUTPUT_PORT_TYPE
 duty[30] <= velocidad[30].DB_MAX_OUTPUT_PORT_TYPE
 duty[31] <= velocidad[31].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|controladorMotor|senalPwm:pwm1
-clk => pwm~reg0.CLK
-clk => conteo[0].CLK
-clk => conteo[1].CLK
-clk => conteo[2].CLK
-clk => conteo[3].CLK
-clk => conteo[4].CLK
-clk => conteo[5].CLK
-clk => conteo[6].CLK
-clk => conteo[7].CLK
-clk => conteo[8].CLK
-clk => conteo[9].CLK
-duty[0] => LessThan0.IN54
-duty[1] => LessThan0.IN53
-duty[2] => LessThan0.IN52
-duty[3] => LessThan0.IN51
-duty[4] => LessThan0.IN50
-duty[5] => LessThan0.IN49
-duty[6] => LessThan0.IN48
-duty[7] => LessThan0.IN47
-duty[8] => LessThan0.IN46
-duty[9] => LessThan0.IN45
-duty[10] => LessThan0.IN44
-duty[11] => LessThan0.IN43
-duty[12] => LessThan0.IN42
-duty[13] => LessThan0.IN41
-duty[14] => LessThan0.IN40
-duty[15] => LessThan0.IN39
-duty[16] => LessThan0.IN38
-duty[17] => LessThan0.IN37
-duty[18] => LessThan0.IN36
-duty[19] => LessThan0.IN35
-duty[20] => LessThan0.IN34
-duty[21] => LessThan0.IN33
-duty[22] => LessThan0.IN32
-duty[23] => LessThan0.IN31
-duty[24] => LessThan0.IN30
-duty[25] => LessThan0.IN29
-duty[26] => LessThan0.IN28
-duty[27] => LessThan0.IN27
-duty[28] => LessThan0.IN26
-duty[29] => LessThan0.IN25
-duty[30] => LessThan0.IN24
-duty[31] => LessThan0.IN23
-pwm <= pwm~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

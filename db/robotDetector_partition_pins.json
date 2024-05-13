@@ -4,11 +4,135 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "trig",
+					"name" : "duty[0]",
 					"strict" : false
 				},
 				{
-					"name" : "snlMotor",
+					"name" : "duty[1]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[2]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[3]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[4]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[5]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[6]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[7]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[8]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[9]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[10]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[11]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[12]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[13]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[14]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[15]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[16]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[17]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[18]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[19]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[20]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[21]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[22]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[23]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[24]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[25]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[26]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[27]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[28]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[29]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[30]",
+					"strict" : false
+				},
+				{
+					"name" : "duty[31]",
+					"strict" : false
+				},
+				{
+					"name" : "trig",
 					"strict" : false
 				},
 				{

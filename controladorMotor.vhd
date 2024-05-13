@@ -5,7 +5,8 @@ entity controladorMotor is
 	port(	clk, rst, echo, start:		in std_logic;
 			--duty: 							in integer;
 			
-			trig, snlMotor:				out std_logic;
+			trig, en_motor:				out std_logic;
+			snlMotor:		out std_logic_vector(1 downto 0);
 			disp0, disp1, disp2: 		out std_logic_vector(6 downto 0);
 			disp3, disp4, disp5: 		out std_logic_vector(6 downto 0));
 end entity;
@@ -19,7 +20,10 @@ begin
 	
 	sensor1: entity work.sensor(bhv) port map(clk, rst, echo, start, duty, trig, disp0, disp1, disp2, disp3, disp4, disp5);
 	
-	pwm1: entity work.senalPwm(bhv) port map(clkl, duty, snlMotor); 
+	pwm1: entity work.senalPwm(bhv) port map(clkl, duty, snlMotor(1));
+		
+	snlMotor(0) <= '0';
 	
+	en_motor <= '1';
 	
 end architecture;
