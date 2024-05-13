@@ -4,7 +4,8 @@ use ieee.numeric_std.all;
 
 entity sensor is
 	port(	clk,rst,echo: 	in std_logic;
-			start:	in std_logic;
+			start:			in std_logic;
+			duty: 			out integer;
 			trig: 			out std_logic;
 			disp0, disp1, disp2: 	out std_logic_vector(6 downto 0);
 			disp3, disp4, disp5: 	out std_logic_vector(6 downto 0)
@@ -13,22 +14,28 @@ end entity;
 
 architecture bhv of sensor is
 	
-	type 	 maquinaEstados is (s0,s1,s2,s3,s4);
+	--FSM
+	type 	 maquinaEstados is (s0,s1,s2,s3,s4,s5);
 	signal nextState: maquinaEstados;
-	--signal state, nextState: maquinaEstados;
 	signal clkState: std_logic;
 	
 	--señales enable para los modulos
 	
-	signal en_distance, en_trigger: std_logic;
+	signal en_distance, en_trigger, en_duty: std_logic;
 	
 	--Distancias
-	
 	signal distancia ,distanciaMax, distanciaActual: integer; 
 	
-	--Relojes y otras senales
+	--Relojes
 	signal clkl1, clkl2, tr: std_logic;
+	
+	--Displays
 	signal hex0, hex1, hex2, hex3, hex4, hex5: integer;
+	
+	--Ciclo de trabajo
+	signal dty, dtyCalc  : integer; -- dtyCalc es la que sale del modulo, dty es la que guarda el valor de duty entre estados
+	signal done: std_logic;
+	
 	
 begin
 	--Reloj para la maquina de estados
@@ -53,7 +60,8 @@ begin
 	display4: entity work.ss7(bhv) port map(hex4, disp4);
 	display5: entity work.ss7(bhv) port map(hex5, disp5);
 	
-	
+	vel: entity work.calcDuty(bhv) port map( clkState ,en_duty, rst, distanciaMax, distanciaActual, done, dtyCalc);
+		
 	hex0 <= distanciaMax mod 10;
 	hex1 <= (distanciaMax mod 100) / 10;
 	hex2 <= distanciaMax / 100;
@@ -61,6 +69,11 @@ begin
 	hex3 <= distanciaActual mod 10;
 	hex4 <= (distanciaActual mod 100) / 10;
 	hex5 <= distanciaActual / 100;
+	
+	
+	
+	--Ciclo de trabajo
+	duty <= dty;
 	
 	process(clkState)
 	begin
@@ -72,6 +85,8 @@ begin
 			en_trigger <= '0';
 			distanciaMax <= 0;
 			distanciaActual <= 0;
+			en_duty <= '0';
+			dty <= 0;
 			
 		else
 		
@@ -84,6 +99,8 @@ begin
 					en_trigger <= '0';
 					distanciaMax <= 0;
 					distanciaActual <= 0;
+					en_duty <= '0';
+					dty <= 0;
 					if(start = '1') then
 						nextState <= s1;
 					end if;
@@ -94,6 +111,8 @@ begin
 					en_distance <= '0';
 					distanciaMax <= 0;
 					distanciaActual <= 0;
+					en_duty <= '0';
+					dty <= 0;
 					if(echo = '1') then
 						nextState <= s2;
 					end if;
@@ -102,6 +121,8 @@ begin
 					en_trigger 	<= '1';
 					en_distance <= '1';
 					distanciaActual <= 0;
+					en_duty <= '0';
+					dty <= 0;
 					if(echo = '0') then
 						distanciaMax <= distancia;
 						nextState <= s3;
@@ -114,6 +135,8 @@ begin
 					en_trigger 	<= '1';
 					en_distance <= '0';
 					distanciaMax <= distanciaMax;
+					en_duty <= '0';
+					dty <= dty;
 					distanciaActual <= distanciaActual;
 					if(echo = '1') then
 						nextState <= s4;
@@ -123,12 +146,34 @@ begin
 					en_trigger 	<= '1';
 					en_distance <= '1';
 					distanciaMax <= distanciaMax;
+					en_duty <= '0';
+					dty <= dty;
+					
 					if(echo = '0') then
 						distanciaActual <= distancia;
-						nextState <= s3;
+						nextState <= s5;
 					else 
 						distanciaActual <= distanciaActual;
 					end if;
+					
+				--Medicion del ciclo de trabajo (velocidad) para el motor
+				
+				when s5 =>
+					en_trigger 	<= '1';
+					en_distance <= '0';
+					distanciaMax <= distanciaMax;
+					distanciaActual <= distanciaActual;
+					en_duty <= '1';
+					--dty <= dtyCalc;
+					--nextState <= s3;
+					
+					if(done = '1') then
+						dty <= dtyCalc;
+						nextState <= s3;
+					else
+						dty <= dty;
+					end if;
+					
 					
 				end case;
 				
