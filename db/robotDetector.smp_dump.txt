@@ -1,5 +1,5 @@
 
-State Machine - |sensor|nextState
+State Machine - |controladorMotor|sensor:sensor1|nextState
 Name nextState.s5 nextState.s4 nextState.s3 nextState.s2 nextState.s1 nextState.s0 
 nextState.s0 0 0 0 0 0 0 
 nextState.s1 0 0 0 0 1 1 
