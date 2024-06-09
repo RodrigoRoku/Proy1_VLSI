@@ -22,8 +22,6 @@ begin
 process(clk)
 begin
 	if (rst = '1') then
-		--distMaxHalf <= 0;
-		--pendiente <= 0;
 		velocidad <= 0;
 		done <= '0';
 	else
@@ -48,9 +46,7 @@ begin
 			end if;
 			
 		else
-			--distMaxHalf <= 0;
 			velocidad <= 0;
-			--pendiente <= 0;
 			done <= '0';
 		end if;
 	end if;

@@ -2,9 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity controladorMotor is
-	port(	clk, rst, echo, start:		in std_logic;
-			--duty: 							in integer;
-			
+	port(	clk, rst, echo, start:		in std_logic;		
 			trig, en_motor:				out std_logic;
 			snlMotor:		out std_logic_vector(1 downto 0);
 			disp0, disp1, disp2: 		out std_logic_vector(6 downto 0);

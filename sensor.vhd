@@ -23,16 +23,16 @@ architecture bhv of sensor is
 	
 	signal en_distance, en_trigger, en_duty: std_logic;
 	
-	--Distancias
+	-- señales para las Distancias
 	signal distancia ,distanciaMax, distanciaActual: integer; 
 	
 	--Relojes
 	signal clkl1, clkl2, tr: std_logic;
 	
-	--Displays
+	-- Displays
 	signal hex0, hex1, hex2, hex3, hex4, hex5: integer;
 	
-	--Ciclo de trabajo
+	-- Ciclo de trabajo
 	signal dty, dtyCalc  : integer; -- dtyCalc es la que sale del modulo, dty es la que guarda el valor de duty entre estados
 	signal done: std_logic;
 	
@@ -163,11 +163,8 @@ begin
 					en_distance <= '0';
 					distanciaMax <= distanciaMax;
 					distanciaActual <= distanciaActual;
-					en_duty <= '1';
-					--dty <= dtyCalc;
-					--nextState <= s3;
-					
-					if(done = '1') then
+					en_duty <= '1';		
+				if(done = '1') then
 						dty <= dtyCalc;
 						nextState <= s3;
 					else

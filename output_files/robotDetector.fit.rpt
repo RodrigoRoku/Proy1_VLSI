@@ -1,5 +1,5 @@
 Fitter report for robotDetector
-Sun May 12 19:16:31 2024
+Wed May 22 22:49:15 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -71,7 +71,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Sun May 12 19:16:31 2024          ;
+; Fitter Status                      ; Successful - Wed May 22 22:49:15 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; robotDetector                                  ;
 ; Top-level Entity Name              ; controladorMotor                               ;
@@ -157,19 +157,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.94        ;
+; Average used               ; 1.91        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   6.6%      ;
-;     Processor 3            ;   6.5%      ;
-;     Processor 4            ;   6.4%      ;
-;     Processor 5            ;   6.4%      ;
-;     Processor 6            ;   6.3%      ;
-;     Processor 7            ;   6.3%      ;
-;     Processor 8            ;   6.3%      ;
-;     Processors 9-16        ;   6.2%      ;
+;     Processor 2            ;   6.4%      ;
+;     Processor 3            ;   6.3%      ;
+;     Processor 4            ;   6.2%      ;
+;     Processor 5            ;   6.1%      ;
+;     Processor 6            ;   6.1%      ;
+;     Processor 7            ;   6.1%      ;
+;     Processor 8            ;   6.1%      ;
+;     Processors 9-16        ;   6.0%      ;
 +----------------------------+-------------+
 
 
@@ -1819,7 +1819,7 @@ Info (176353): Automatically promoted node divf:cl1|clkl  File: C:/Users/Rodrigo
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
@@ -1840,10 +1840,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Info (144001): Generated suppressed messages file C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/output_files/robotDetector.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 6733 megabytes
-    Info: Processing ended: Sun May 12 19:16:31 2024
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Peak virtual memory: 6729 megabytes
+    Info: Processing ended: Wed May 22 22:49:16 2024
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:31
 
 
 +----------------------------+

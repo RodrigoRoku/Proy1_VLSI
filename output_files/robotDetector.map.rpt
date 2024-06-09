@@ -1,5 +1,5 @@
 Analysis & Synthesis report for robotDetector
-Sun May 12 23:03:56 2024
+Wed May 22 22:48:53 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -64,7 +64,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 12 23:03:56 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed May 22 22:48:53 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; robotDetector                                  ;
 ; Top-level Entity Name              ; controladorMotor                               ;
@@ -182,7 +182,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
@@ -854,7 +854,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:06     ;
 +----------------+--------------+
 
 
@@ -864,7 +864,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sun May 12 23:03:46 2024
+    Info: Processing started: Wed May 22 22:48:41 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off robotDetector -c robotDetector
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -893,11 +893,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file senalpw
     Info (12022): Found design unit 1: senalPwm-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalPwm.vhd Line: 11
     Info (12023): Found entity 1: senalPwm File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/senalPwm.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controladormotor.vhd
-    Info (12022): Found design unit 1: controladorMotor-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 14
+    Info (12022): Found design unit 1: controladorMotor-bhv File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 12
     Info (12023): Found entity 1: controladorMotor File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 4
 Info (12127): Elaborating entity "controladorMotor" for the top level hierarchy
-Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "divf:cl1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 18
-Info (12129): Elaborating entity "sensor" using architecture "A:bhv" for hierarchy "sensor:sensor1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 21
+Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "divf:cl1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 16
+Info (12129): Elaborating entity "sensor" using architecture "A:bhv" for hierarchy "sensor:sensor1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 19
 Warning (10492): VHDL Process Statement warning at sensor.vhd(81): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 81
 Info (12129): Elaborating entity "divf" using architecture "A:bhv" for hierarchy "sensor:sensor1|divf:clkS" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 43
 Info (12129): Elaborating entity "clkTrigger" using architecture "A:bhv" for hierarchy "sensor:sensor1|clkTrigger:u2" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 46
@@ -913,7 +913,7 @@ Warning (10492): VHDL Process Statement warning at calcDistance.vhd(41): signal 
 Info (12129): Elaborating entity "ss7" using architecture "A:bhv" for hierarchy "sensor:sensor1|ss7:display0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 55
 Info (12129): Elaborating entity "calcDuty" using architecture "A:bhv" for hierarchy "sensor:sensor1|calcDuty:vel" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 63
 Warning (10492): VHDL Process Statement warning at calcDuty.vhd(24): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 24
-Info (12129): Elaborating entity "senalPwm" using architecture "A:bhv" for hierarchy "senalPwm:pwm1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 23
+Info (12129): Elaborating entity "senalPwm" using architecture "A:bhv" for hierarchy "senalPwm:pwm1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 21
 Info (278001): Inferred 12 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 65
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Mod1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 66
@@ -925,8 +925,8 @@ Info (278001): Inferred 12 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|Div3" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 71
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|calcDistance:u4|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 45
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "sensor:sensor1|calcDuty:vel|Div0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 20
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sensor:sensor1|calcDuty:vel|Mult0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sensor:sensor1|calcDuty:vel|Mult1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 45
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sensor:sensor1|calcDuty:vel|Mult0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 41
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sensor:sensor1|calcDuty:vel|Mult1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
 Info (12130): Elaborated megafunction instantiation "sensor:sensor1|lpm_divide:Mod0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 65
 Info (12133): Instantiated megafunction "sensor:sensor1|lpm_divide:Mod0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 65
     Info (12134): Parameter "LPM_WIDTHN" = "32"
@@ -1004,8 +1004,8 @@ Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_divide:
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_vco.tdf
     Info (12023): Found entity 1: lpm_divide_vco File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/lpm_divide_vco.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
-Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 41
+Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mult0" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 41
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -1017,8 +1017,8 @@ Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mu
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_qgs.tdf
     Info (12023): Found entity 1: mult_qgs File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/db/mult_qgs.tdf Line: 31
-Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 45
-Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 45
+Info (12130): Elaborated megafunction instantiation "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
+Info (12133): Instantiated megafunction "sensor:sensor1|calcDuty:vel|lpm_mult:Mult1" with the following parameter: File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -1047,8 +1047,8 @@ Warning (13004): Presettable and clearable registers converted to equivalent cir
     Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[8]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[8]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
     Warning (13310): Register "sensor:sensor1|calcDistance:u4|distancia[9]" is converted into an equivalent circuit using register "sensor:sensor1|calcDistance:u4|distancia[9]~_emulated" and latch "sensor:sensor1|calcDistance:u4|distancia[0]~1" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "en_motor" is stuck at VCC File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 8
-    Warning (13410): Pin "snlMotor[0]" is stuck at GND File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 9
+    Warning (13410): Pin "en_motor" is stuck at VCC File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 6
+    Warning (13410): Pin "snlMotor[0]" is stuck at GND File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/controladorMotor.vhd Line: 7
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
     Critical Warning (18010): Register sensor:sensor1|distanciaMax[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
@@ -1058,10 +1058,10 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register sensor:sensor1|dty[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
     Critical Warning (18010): Register sensor:sensor1|dty[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/sensor.vhd Line: 93
     Critical Warning (18010): Register sensor:sensor1|calcDistance:u4|distancia[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDistance.vhd Line: 44
-    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|velocidad[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 31
-    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|velocidad[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 31
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|velocidad[31] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 29
+    Critical Warning (18010): Register sensor:sensor1|calcDuty:vel|velocidad[0] will power up to Low File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 29
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "sensor:sensor1|calcDuty:vel|Add3~0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 45
+    Info (17048): Logic cell "sensor:sensor1|calcDuty:vel|Add3~0" File: C:/Users/Rodrigo/Documents/GitHub/Proy1_VLSI/calcDuty.vhd Line: 43
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 11376 device resources after synthesis - the final resource count might be different
@@ -1070,9 +1070,9 @@ Info (21057): Implemented 11376 device resources after synthesis - the final res
     Info (21061): Implemented 11314 logic cells
     Info (21062): Implemented 12 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 4987 megabytes
-    Info: Processing ended: Sun May 12 23:03:56 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 4971 megabytes
+    Info: Processing ended: Wed May 22 22:48:53 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:08
 
 
